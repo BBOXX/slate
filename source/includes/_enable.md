@@ -3,22 +3,22 @@
 > A `PUT` request to this endpoint enables the unit.
 
 ```python
-    url = "http://smartapi.bboxx.co.uk/v1/products/000000000000/enable"
+    url = "http://smartapi.bboxx.co.uk/v1/products/01000000000/enable"
     headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.put(url=url, headers=headers)
 
     print r.json()
     >>> {
-        "status": "success", 
-        "message": "Product enabled", 
+        "status": "success",
+        "message": "Product enabled",
         "data": None
     }
 ```
 
 This endpoint is used to enable (switch-on) a unit. The imei of the unit to be enabled is specified in the url.
 
-    | value 
+    | value
 ---:|:------
 __endpoint__ | `/products/<imei>/enable`
 __method__ | `PUT`
@@ -26,7 +26,7 @@ __url_params__ | `product_imei` _(str)_
 __payload__ | None
 __response__ | 200
 
-Note that if a unit is already enabled the API will return "success" anyway. 
+Note that if a unit is already enabled the API will return "success" anyway.
 
 ### Pending Status and Enable History
 
@@ -34,15 +34,15 @@ A unit's status will only change once it makes an RC-GET connection the SMARTSol
 
 For example:
 
-* A unit is OFF (disabled). 
-* A technician chooses to enable the unit, the unit then moves to "pending enabled" and is still off. 
+* A unit is OFF (disabled).
+* A technician chooses to enable the unit, the unit then moves to "pending enabled" and is still off.
 * The unit remains in "pending enabled" until a connection is made.
 * A connection is made - the unit receives its new status and is moved to enabled, it is now ON
 
 ### The `enable_history` table
 
-The changes above are tracked in the `enable_history` table. Each time an unit has a change of state this is recorded in the 
-`enable_history` table, along with the user who caused the change. 
+The changes above are tracked in the `enable_history` table. Each time an unit has a change of state this is recorded in the
+`enable_history` table, along with the user who caused the change.
 
 ### WakeUp
 > Current WAKEUP ENABLED software:

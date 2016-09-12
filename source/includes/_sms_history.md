@@ -7,16 +7,16 @@ This description is not yet complete it should be filled in!
 Field | Description
 ------:|:------------
 __sms_history_id__ <br><font color="DarkGray">_int_</font> <font color="Crimson">__(primary key)__</font> | A unique integer identifier for each sms_history.
-__modified_by__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
-__attempted_retries__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(not-null)</font> | 
-__<a href="/#enable-history">enable_history_id</a>__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(foreign-key)</font> | 
-__message_reference__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
-__message__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
-__<a href="/#product">product_imei</a>__ <br><font color="DarkGray">_varchar(15)_</font> <font color="Crimson">(not-null,foreign-key)</font> | 
-__sent_time__ <br><font color="DarkGray">_datetime_</font> <font color="Crimson">(not-null)</font> | 
-__sms_timeout__ <br><font color="DarkGray">_datetime_</font> <font color="Crimson">(not-null)</font> | 
-__status__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
-__trigger__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
+__modified_by__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
+__attempted_retries__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(not-null)</font> |
+__<a href="/#enable-history">enable_history_id</a>__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(foreign-key)</font> |
+__message_reference__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
+__message__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
+__<a href="/#product">product_imei</a>__ <br><font color="DarkGray">_varchar(15)_</font> <font color="Crimson">(not-null,foreign-key)</font> |
+__sent_time__ <br><font color="DarkGray">_datetime_</font> <font color="Crimson">(not-null)</font> |
+__sms_timeout__ <br><font color="DarkGray">_datetime_</font> <font color="Crimson">(not-null)</font> |
+__status__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
+__trigger__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
 __created_at__  <br><font color="DarkGray">_datetime_</font> | timestamp that the record was created at
 __created_by__  <br><font color="DarkGray">_text_</font>| username of the user who created the record
 __modified_at__ <br><font color="DarkGray">_datetime_</font>| timestamp that the record was last modified
@@ -26,7 +26,7 @@ __modified_at__ <br><font color="DarkGray">_datetime_</font>| timestamp that the
 
 Relationship | Description
 -------------:|:------------
-<font color="DarkGray">N/A</font> | <font color="DarkGray">_There are no relatioships for this table._</font>
+<font color="DarkGray">N/A</font> | <font color="DarkGray">_There are no relationships for this table._</font>
 
 <hr>
 <br>
@@ -37,7 +37,7 @@ Relationship | Description
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/sms_history/1'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.get(url=url, headers=headers)
 
@@ -67,7 +67,7 @@ Relationship | Description
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/sms_history'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.get(url=url, headers=headers)
 
@@ -95,7 +95,7 @@ Relationship | Description
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/sms_history/1'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.delete(url=url, headers=headers)
 
@@ -137,4 +137,4 @@ body | <font color="DarkGray">N/A</font>
 permissions | <font color="Crimson">__`SYSTEM`__</font>
 response | `204`
 
-    
+

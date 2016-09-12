@@ -7,15 +7,15 @@ This description is not yet complete it should be filled in!
 Field | Description
 ------:|:------------
 __repair_id__ <br><font color="DarkGray">_int_</font> <font color="Crimson">__(primary key)__</font> | A unique integer identifier for each repair.
-__modified_by__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
-__<a href="/#product">product_imei</a>__ <br><font color="DarkGray">_varchar(15)_</font> <font color="Crimson">(not-null,foreign-key)</font> | 
-__customer_id__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
-__purchase_date__ <br><font color="DarkGray">_unknown-type_</font> <font color="Crimson"></font> | 
-__arrival_date__ <br><font color="DarkGray">_unknown-type_</font> <font color="Crimson">(not-null)</font> | 
-__refurbishment_date__ <br><font color="DarkGray">_unknown-type_</font> <font color="Crimson"></font> | 
-__package__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
-__process__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
-__measured_battery_capacity__ <br><font color="DarkGray">_unknown-type_</font> <font color="Crimson"></font> | 
+__modified_by__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
+__<a href="/#product">product_imei</a>__ <br><font color="DarkGray">_varchar(15)_</font> <font color="Crimson">(not-null,foreign-key)</font> |
+__<a href="/#customer">customer_id</a>__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
+__purchase_date__ <br><font color="DarkGray">_unknown-type_</font> <font color="Crimson"></font> |
+__arrival_date__ <br><font color="DarkGray">_unknown-type_</font> <font color="Crimson">(not-null)</font> |
+__refurbishment_date__ <br><font color="DarkGray">_unknown-type_</font> <font color="Crimson"></font> |
+__package__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
+__process__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
+__measured_battery_capacity__ <br><font color="DarkGray">_unknown-type_</font> <font color="Crimson"></font> |
 __created_at__  <br><font color="DarkGray">_datetime_</font> | timestamp that the record was created at
 __created_by__  <br><font color="DarkGray">_text_</font>| username of the user who created the record
 __modified_at__ <br><font color="DarkGray">_datetime_</font>| timestamp that the record was last modified
@@ -25,8 +25,8 @@ __modified_at__ <br><font color="DarkGray">_datetime_</font>| timestamp that the
 
 Relationship | Description
 -------------:|:------------
-__alerts__ | The associated alerts
-__repair_symptom_type_linker__ | The associated repair_symptom_type_linker
+__alerts__ | The associated <a href="/#alert">`alerts`</a>
+__repair_symptom_type_linker__ | The associated <a href="/#repair-symptom-type-linker">`repair_symptom_type_linker`</a>
 
 
 <hr>
@@ -37,17 +37,16 @@ __repair_symptom_type_linker__ | The associated repair_symptom_type_linker
 ```python
     url = "http://smartapi.bboxx.co.uk/v1/repairs"
     data = json.dumps({
-		"modified_by": "test",
-		"product_imei": "000000000000000",
-		"customer_id": "test",
+		"product_imei": "000000000000000",                # look up product IMEIs using GET: product
+		"customer_id": "test",                            # look up customer IDs using GET: customer
 		"purchase_date": Unknown column type,
 		"arrival_date": Unknown column type,
 		"refurbishment_date": Unknown column type,
 		"package": "test",
 		"process": "test",
-		"measured_battery_capacity": Unknown column type,
+		"measured_battery_capacity": 0.0,
 		})
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.post(url=url, data=data, headers=headers)
 
@@ -71,13 +70,13 @@ __repair_symptom_type_linker__ | The associated repair_symptom_type_linker
 		"created_by": "test.user@bboxx.co.uk"
 		"modified_at": None
 	}
-    ```
+```
 
-    > We can retrieve the `repair` created by specifying its `repair_id` in the request url:
+> We can retrieve the `repair` created by specifying its `repair_id` in the request url:
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/repairs/1'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.get(url=url, headers=headers)
 
@@ -106,7 +105,7 @@ __repair_symptom_type_linker__ | The associated repair_symptom_type_linker
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/repairs'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.get(url=url, headers=headers)
 
@@ -131,19 +130,18 @@ __repair_symptom_type_linker__ | The associated repair_symptom_type_linker
 > We can edit the newly created `repair` with a `PUT` request:
 
 ```python
-    url = 'http://smartapi.bboxx.co.uk/v1/repairs'
+    url = 'http://smartapi.bboxx.co.uk/v1/repairs/1'
     data = json.dumps({
-		"modified_by": "changed",
-		"product_imei": "999999999999999",
-		"customer_id": "changed",
+		"product_imei": "999999999999999",                         # look up product IMEIs using GET: product
+		"customer_id": "changed",                                  # look up customer IDs using GET: customer
 		"purchase_date": Unknown column type,
 		"arrival_date": Unknown column type,
 		"refurbishment_date": Unknown column type,
 		"package": "changed",
 		"process": "changed",
-		"measured_battery_capacity": Unknown column type,
+		"measured_battery_capacity": 0.0,
 		})
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.post(url=url, data=data, headers=headers)
 
@@ -173,7 +171,7 @@ __repair_symptom_type_linker__ | The associated repair_symptom_type_linker
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/repairs/1'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.delete(url=url, headers=headers)
 
@@ -231,4 +229,4 @@ body | <font color="DarkGray">N/A</font>
 permissions | <font color="Crimson">__`SYSTEM`__</font>
 response | `204`
 
-    
+

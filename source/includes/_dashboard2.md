@@ -16,7 +16,7 @@ r.json()
             "imsi": "204040000000000",
             "hardware_type": "BB17SMART_v2",
             "entities": [{
-                "entity_id": 1, 
+                "entity_id": 1,
                 "name": "A Test Entity",
                 "bboxx_company_flag": True,
                 "financier": None,
@@ -47,14 +47,14 @@ r.json()
             "pending_software": None,
             "created_at": "2015-04-16T02:09:55",
             "created_by": "test.user@bboxx.co.uk",
-        }, 
+        },
         {
             "product_imei": "222222222222222",
             "serial_number": "BB17SMART-150127-0608",
             "imsi": "204042222222222",
             "hardware_type": "BB17SMART_v2",
             "entities": [{
-                "entity_id": 1, 
+                "entity_id": 1,
                 "name": "A Test Entity",
                 "bboxx_company_flag": True,
                 "financier": None,
@@ -85,7 +85,7 @@ r.json()
             "pending_software": None,
             "created_at": "2015-04-16T02:09:55",
             "created_by": "test.user@bboxx.co.uk",
-        }, 
+        },
     ]
     "num_results": 2
     "num_results_filtered": 2
@@ -98,9 +98,9 @@ r.json()
 
 ```
 
-This endpoint is used to return a collection of useful data about a product (or products) in a format that is helpful. 
+This endpoint is used to return a collection of useful data about a product (or products) in a format that is helpful.
 
-    | value 
+    | value
 ---:|:------
 __endpoint__ | `/dashboard2`
 __method__ | `GET`
@@ -143,8 +143,8 @@ print r.json()
             "current_tamper_flag": True,
             "desired_tamper_flag": True,
             "entities": [{
-                "entity_id": 31, 
-                "name": "Angaza Design", 
+                "entity_id": 31,
+                "name": "Angaza Design",
                 "bboxx_company_flag": False,
                 "financier": None,
                 "tariff": "WV-695 - Vodafone Global- ROWT3 1MB"
@@ -174,10 +174,10 @@ print r.json()
 }
 ```
 
-The `/dashboard2` endpoint follows the Flask-Restless query format but with a few caveats. 
+The `/dashboard2` endpoint follows the Flask-Restless query format but with a few caveats.
 
-Querying a single product follows the expected pattern.  
-`"filters": [{"name": "entities", "op": "eq", "val": "A Test Entity"}]` 
+Querying a single product follows the expected pattern.
+`"filters": [{"name": "entities", "op": "eq", "val": "A Test Entity"}]`
 
 ### Entities
 
@@ -196,15 +196,15 @@ params = {
 r = requests.get(url=url, params=params, headers=headers)
 ```
 
-Querying entities deviates from the expected pattern slightly. 
+Querying <a href=#/entity>`entities`</a> deviates from the expected pattern slightly.
 
-Rather than `"name": "entity"` you must instead specify `"name": "entities"`  
+Rather than `"name": "entity"` you must instead specify `"name": "entities"`
 
-In addition the value must be the name of an entity rather than an `entity_id`.  
+In addition the value must be the name of an entity rather than an `entity_id`.
 
-For example:  
+For example:
 `"filters": [{"name": "entities", "op": "eq", "val": "A Test Entity"}]`
 
-__<aside class="warning">The name is Case-Sensitive and must be an exact match of the entity name in the database. If you're unsure of the exact name query the <a href=#/entities>`/entities`</a> endpoint to confirm the entity names.</aside>__
+__<aside class="warning">The name is Case-Sensitive and must be an exact match of the entity name in the database. If you're unsure of the exact name query the <a href=#/entity>`entities`</a> endpoint to confirm the entity names.</aside>__
 
 

@@ -7,11 +7,11 @@ This description is not yet complete it should be filled in!
 Field | Description
 ------:|:------------
 __entity_id__ <br><font color="DarkGray">_int_</font> <font color="Crimson">__(primary key)__</font> | A unique integer identifier for each entity.
-__modified_by__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
-__name__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null,unique)</font> | 
-__bboxx_company_flag__ <br><font color="DarkGray">_boolean_</font> <font color="Crimson">(not-null)</font> | 
-__tariff__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
-__financier__ <br><font color="DarkGray">_boolean_</font> <font color="Crimson"></font> | 
+__modified_by__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
+__name__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null,unique)</font> |
+__bboxx_company_flag__ <br><font color="DarkGray">_boolean_</font> <font color="Crimson">(not-null)</font> |
+__tariff__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
+__financier__ <br><font color="DarkGray">_boolean_</font> <font color="Crimson"></font> |
 __created_at__  <br><font color="DarkGray">_datetime_</font> | timestamp that the record was created at
 __created_by__  <br><font color="DarkGray">_text_</font>| username of the user who created the record
 __modified_at__ <br><font color="DarkGray">_datetime_</font>| timestamp that the record was last modified
@@ -21,9 +21,9 @@ __modified_at__ <br><font color="DarkGray">_datetime_</font>| timestamp that the
 
 Relationship | Description
 -------------:|:------------
-__hubs__ | The associated hubs
-__customer_entity_linker__ | The associated customer_entity_linker
-__product_entity_linker__ | The associated product_entity_linker
+__hubs__ | The associated <a href="/#hub">`hubs`</a>
+__customer_entity_linker__ | The associated <a href="/#customer_entity_linker">`customer_entity_linker`</a>
+__product_entity_linker__ | The associated <a href="/#product_entity_linker">`product_entity_linker`</a>
 
 
 <hr>
@@ -34,13 +34,12 @@ __product_entity_linker__ | The associated product_entity_linker
 ```python
     url = "http://smartapi.bboxx.co.uk/v1/entities"
     data = json.dumps({
-		"modified_by": "test",
-		"name": "test",
+		"name": "test",                   # unique
 		"bboxx_company_flag": True,
 		"tariff": "test",
 		"financier": True,
 		})
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.post(url=url, data=data, headers=headers)
 
@@ -60,13 +59,13 @@ __product_entity_linker__ | The associated product_entity_linker
 		"created_by": "test.user@bboxx.co.uk"
 		"modified_at": None
 	}
-    ```
+```
 
-    > We can retrieve the `entity` created by specifying its `entity_id` in the request url:
+> We can retrieve the `entity` created by specifying its `entity_id` in the request url:
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/entities/1'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.get(url=url, headers=headers)
 
@@ -91,7 +90,7 @@ __product_entity_linker__ | The associated product_entity_linker
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/entities'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.get(url=url, headers=headers)
 
@@ -116,17 +115,16 @@ __product_entity_linker__ | The associated product_entity_linker
 > We can edit the newly created `entity` with a `PUT` request:
 
 ```python
-    url = 'http://smartapi.bboxx.co.uk/v1/entities'
+    url = 'http://smartapi.bboxx.co.uk/v1/entities/1'
     data = json.dumps({
-		"modified_by": "changed",
-		"name": "changed",
+		"name": "changed",                # unique
 		"bboxx_company_flag": False,
 		"tariff": "changed",
 		"financier": False,
 		})
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
-    r = requests.post(url=url, data=data, headers=headers)
+    r = requests.put(url=url, data=data, headers=headers)
 
     r
     >>> <Response 200>
@@ -150,7 +148,7 @@ __product_entity_linker__ | The associated product_entity_linker
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/entities/1'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.delete(url=url, headers=headers)
 
@@ -208,4 +206,4 @@ body | <font color="DarkGray">N/A</font>
 permissions | <font color="Crimson">__`SYSTEM`__</font>
 response | `204`
 
-    
+

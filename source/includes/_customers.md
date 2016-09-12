@@ -7,10 +7,10 @@ This description is not yet complete it should be filled in!
 Field | Description
 ------:|:------------
 __customer_id__ <br><font color="DarkGray">_int_</font> <font color="Crimson">__(primary key)__</font> | A unique integer identifier for each customer.
-__modified_by__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
-__name__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null)</font> | 
-__external_customer_id__ <br><font color="DarkGray">_int_</font> <font color="Crimson"></font> | 
-__external_customer_code__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
+__modified_by__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
+__name__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null)</font> |
+__external_customer_id__ <br><font color="DarkGray">_int_</font> <font color="Crimson"></font> |
+__external_customer_code__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
 __created_at__  <br><font color="DarkGray">_datetime_</font> | timestamp that the record was created at
 __created_by__  <br><font color="DarkGray">_text_</font>| username of the user who created the record
 __modified_at__ <br><font color="DarkGray">_datetime_</font>| timestamp that the record was last modified
@@ -20,8 +20,8 @@ __modified_at__ <br><font color="DarkGray">_datetime_</font>| timestamp that the
 
 Relationship | Description
 -------------:|:------------
-__customer_product_history__ | The associated customer_product_history
-__customer_entity_linker__ | The associated customer_entity_linker
+__customer_product_history__ | The associated <a href="/#customer-product-history">`customer_product_history`</a>
+__customer_entity_linker__ | The associated <a href="/#customer-entity-linker">`customer_entity_linker`</a>
 
 
 <hr>
@@ -33,7 +33,7 @@ __customer_entity_linker__ | The associated customer_entity_linker
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/customers/1'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.get(url=url, headers=headers)
 
@@ -57,7 +57,7 @@ __customer_entity_linker__ | The associated customer_entity_linker
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/customers'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.get(url=url, headers=headers)
 
@@ -82,16 +82,15 @@ __customer_entity_linker__ | The associated customer_entity_linker
 > We can edit the newly created `customer` with a `PUT` request:
 
 ```python
-    url = 'http://smartapi.bboxx.co.uk/v1/customers'
+    url = 'http://smartapi.bboxx.co.uk/v1/customers/1'
     data = json.dumps({
-		"modified_by": "changed",
 		"name": "changed",
 		"external_customer_id": 2,
 		"external_customer_code": "changed",
 		})
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
-    r = requests.post(url=url, data=data, headers=headers)
+    r = requests.put(url=url, data=data, headers=headers)
 
     r
     >>> <Response 200>
@@ -114,7 +113,7 @@ __customer_entity_linker__ | The associated customer_entity_linker
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/customers/1'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.delete(url=url, headers=headers)
 
@@ -164,4 +163,4 @@ body | <font color="DarkGray">N/A</font>
 permissions | <font color="Crimson">__`SYSTEM`__</font>
 response | `204`
 
-    
+

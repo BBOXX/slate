@@ -7,12 +7,12 @@ This description is not yet complete it should be filled in!
 Field | Description
 ------:|:------------
 __hub_id__ <br><font color="DarkGray">_int_</font> <font color="Crimson">__(primary key)__</font> | A unique integer identifier for each hub.
-__modified_by__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
-__name__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null,unique)</font> | 
-__guid__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(unique)</font> | 
-__<a href="/#entity">entity_id</a>__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(not-null,foreign-key)</font> | 
-__latitude__ <br><font color="DarkGray">_varchar(12)_</font> <font color="Crimson"></font> | 
-__longitude__ <br><font color="DarkGray">_varchar(12)_</font> <font color="Crimson"></font> | 
+__modified_by__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
+__name__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null,unique)</font> |
+__guid__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(unique)</font> |
+__<a href="/#entity">entity_id</a>__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(not-null,foreign-key)</font> |
+__latitude__ <br><font color="DarkGray">_varchar(12)_</font> <font color="Crimson"></font> |
+__longitude__ <br><font color="DarkGray">_varchar(12)_</font> <font color="Crimson"></font> |
 __created_at__  <br><font color="DarkGray">_datetime_</font> | timestamp that the record was created at
 __created_by__  <br><font color="DarkGray">_text_</font>| username of the user who created the record
 __modified_at__ <br><font color="DarkGray">_datetime_</font>| timestamp that the record was last modified
@@ -22,8 +22,8 @@ __modified_at__ <br><font color="DarkGray">_datetime_</font>| timestamp that the
 
 Relationship | Description
 -------------:|:------------
-__products__ | The associated products
-__shops__ | The associated shops
+__products__ | The associated <a href="/#product">`products`</a>
+__shops__ | The associated <a href="/#shop">`shops`</a>
 
 
 <hr>
@@ -34,14 +34,13 @@ __shops__ | The associated shops
 ```python
     url = "http://smartapi.bboxx.co.uk/v1/hubs"
     data = json.dumps({
-		"modified_by": "test",
-		"name": "test",
-		"guid": "test",
-		"entity_id": 1,
-		"latitude": -1.111111111,
-		"longitude": -1.111111111,
+		"name": "test",               # unique
+		"guid": "test",               # unique
+		"entity_id": 1,               # look up entity IDs using GET: entity
+		"latitude": "-1.111111111",
+		"longitude": "-1.111111111",
 		})
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.post(url=url, data=data, headers=headers)
 
@@ -56,19 +55,19 @@ __shops__ | The associated shops
 		"name": "test",
 		"guid": "test",
 		"entity_id": 1,
-		"latitude": -1.111111111,
-		"longitude": -1.111111111,
+		"latitude": -1.111111111",
+		"longitude": -1.111111111",
 		"created_at": "2000-01-01 00:00:00"
 		"created_by": "test.user@bboxx.co.uk"
 		"modified_at": None
 	}
-    ```
+```
 
-    > We can retrieve the `hub` created by specifying its `hub_id` in the request url:
+> We can retrieve the `hub` created by specifying its `hub_id` in the request url:
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/hubs/1'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.get(url=url, headers=headers)
 
@@ -82,8 +81,8 @@ __shops__ | The associated shops
 		"name": "test",
 		"guid": "test",
 		"entity_id": 1,
-		"latitude": -1.111111111,
-		"longitude": -1.111111111,
+		"latitude": -1.111111111",
+		"longitude": -1.111111111",
 		"created_at": "2000-01-01 00:00:00"
 		"created_by": "test.user@bboxx.co.uk"
 		"modified_at": None
@@ -94,7 +93,7 @@ __shops__ | The associated shops
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/hubs'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.get(url=url, headers=headers)
 
@@ -119,18 +118,17 @@ __shops__ | The associated shops
 > We can edit the newly created `hub` with a `PUT` request:
 
 ```python
-    url = 'http://smartapi.bboxx.co.uk/v1/hubs'
+    url = 'http://smartapi.bboxx.co.uk/v1/hubs/1'
     data = json.dumps({
-		"modified_by": "changed",
-		"name": "changed",
-		"guid": "changed",
-		"entity_id": 2,
-		"latitude": -9.999999999,
-		"longitude": -9.999999999,
+		"name": "changed",            # unique
+		"guid": "changed",            # unique
+		"entity_id": 2,               # look up entity IDs using GET: entity
+		"latitude": "-9.999999999",
+		"longitude": "-9.999999999",
 		})
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
-    r = requests.post(url=url, data=data, headers=headers)
+    r = requests.put(url=url, data=data, headers=headers)
 
     r
     >>> <Response 200>
@@ -142,8 +140,8 @@ __shops__ | The associated shops
 		"name": "changed",
 		"guid": "changed",
 		"entity_id": 2,
-		"latitude": -9.999999999,
-		"longitude": -9.999999999,
+		"latitude": "-9.999999999",
+		"longitude": "-9.999999999",
 		"created_at": "2000-01-01 00:00:00"
 		"created_by": "test.user@bboxx.co.uk"
 		"modified_at": 2016-07-07 12:34:45
@@ -155,7 +153,7 @@ __shops__ | The associated shops
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/hubs/1'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.delete(url=url, headers=headers)
 
@@ -213,4 +211,4 @@ body | <font color="DarkGray">N/A</font>
 permissions | <font color="Crimson">__`SYSTEM`__</font>
 response | `204`
 
-    
+

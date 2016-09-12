@@ -20,7 +20,7 @@ Relationship | Description
 ```python
     url = "http://smartapi.bboxx.co.uk/v1/{table_name_plural}"
     data = json.dumps({post_data})
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.post(url=url, data=data, headers=headers)
 

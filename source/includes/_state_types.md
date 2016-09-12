@@ -7,9 +7,9 @@ This description is not yet complete it should be filled in!
 Field | Description
 ------:|:------------
 __state_type_id__ <br><font color="DarkGray">_int_</font> <font color="Crimson">__(primary key)__</font> | A unique integer identifier for each state_type.
-__modified_by__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
-__name__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null,unique)</font> | 
-__description__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
+__modified_by__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
+__name__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null,unique)</font> |
+__description__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
 __created_at__  <br><font color="DarkGray">_datetime_</font> | timestamp that the record was created at
 __created_by__  <br><font color="DarkGray">_text_</font>| username of the user who created the record
 __modified_at__ <br><font color="DarkGray">_datetime_</font>| timestamp that the record was last modified
@@ -19,7 +19,7 @@ __modified_at__ <br><font color="DarkGray">_datetime_</font>| timestamp that the
 
 Relationship | Description
 -------------:|:------------
-__states__ | The associated states
+__states__ | The associated <a href="/#state">`states`</a>
 
 
 <hr>
@@ -30,11 +30,10 @@ __states__ | The associated states
 ```python
     url = "http://smartapi.bboxx.co.uk/v1/state_types"
     data = json.dumps({
-		"modified_by": "test",
-		"name": "test",
+		"name": "test",                   # unique
 		"description": "test",
 		})
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.post(url=url, data=data, headers=headers)
 
@@ -52,13 +51,13 @@ __states__ | The associated states
 		"created_by": "test.user@bboxx.co.uk"
 		"modified_at": None
 	}
-    ```
+```
 
-    > We can retrieve the `state_type` created by specifying its `state_type_id` in the request url:
+> We can retrieve the `state_type` created by specifying its `state_type_id` in the request url:
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/state_types/1'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.get(url=url, headers=headers)
 
@@ -81,7 +80,7 @@ __states__ | The associated states
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/state_types'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.get(url=url, headers=headers)
 
@@ -106,15 +105,14 @@ __states__ | The associated states
 > We can edit the newly created `state_type` with a `PUT` request:
 
 ```python
-    url = 'http://smartapi.bboxx.co.uk/v1/state_types'
+    url = 'http://smartapi.bboxx.co.uk/v1/state_types/1'
     data = json.dumps({
-		"modified_by": "changed",
-		"name": "changed",
+		"name": "changed",                # unique
 		"description": "changed",
 		})
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
-    r = requests.post(url=url, data=data, headers=headers)
+    r = requests.put(url=url, data=data, headers=headers)
 
     r
     >>> <Response 200>
@@ -136,7 +134,7 @@ __states__ | The associated states
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/state_types/1'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.delete(url=url, headers=headers)
 
@@ -194,4 +192,4 @@ body | <font color="DarkGray">N/A</font>
 permissions | <font color="Crimson">__`SYSTEM`__</font>
 response | `204`
 
-    
+

@@ -29,7 +29,7 @@
         }
     }
 ```
-This is the endpoint used to generate a token.  For a full explanation see <a href=/#authentication-and-permissions>Authentication and Permissions.</a>
+This is the endpoint used to generate a token.  For a full explanation see <a href=/#authentication-and-permissions>Authentication and Permissions.</a> Username is the full email address.
 
   | value
 --:|:------

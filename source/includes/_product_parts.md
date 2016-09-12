@@ -8,7 +8,7 @@
     url = "http://smartapi.bboxx.co.uk/v1/products/000000000000/parts"
     headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
-    r = requests.put(url=url, headers=headers)
+    r = requests.get(url=url, headers=headers)
 
     print r.json()
     >>> {
@@ -113,13 +113,13 @@
             },
         }
 ```
-This endpoint is designed to for use during repairs of the Unit. A `GET` request to this endpoint will return:
+This endpoint is designed for use during repairs of the Unit. A `GET` request to this endpoint will return:
 
-* The parts present on the unit
-* The parts historically used on the unit
-* The date and time that the part was added (or removed)
-* The allowed replacements for each part
-* Details of the part_type for each part
+* The <a href="/#part">`parts`</a> present on the unit
+* The <a href="/#part">`parts`</a> historically used on the unit
+* The date and time that the <a href="/#part">`part`</a> was added (or removed)
+* The allowed replacements for each <a href="/#part">`part`</a>
+* Details of the <a href="/#part-type">`part_type`</a> for each <a href="/#part">`part`</a>
 
 
 ### Endpoint

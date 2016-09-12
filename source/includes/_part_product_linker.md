@@ -7,14 +7,14 @@ This description is not yet complete it should be filled in!
 Field | Description
 ------:|:------------
 __part_product_linker_id__ <br><font color="DarkGray">_int_</font> <font color="Crimson">__(primary key)__</font> | A unique integer identifier for each part_product_linker.
-__modified_by__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
-__<a href="/#part">part_id</a>__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(not-null,foreign-key)</font> | 
-__<a href="/#product">product_imei</a>__ <br><font color="DarkGray">_varchar(15)_</font> <font color="Crimson">(not-null,foreign-key)</font> | 
-__date_added__ <br><font color="DarkGray">_datetime_</font> <font color="Crimson"></font> | 
-__date_removed__ <br><font color="DarkGray">_datetime_</font> <font color="Crimson"></font> | 
-__<a href="/#added-repair">added_repair_id</a>__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(foreign-key)</font> | 
-__<a href="/#removed-repair">removed_repair_id</a>__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(foreign-key)</font> | 
-__<a href="/#replaced-part">replaced_part_id</a>__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(foreign-key)</font> | 
+__modified_by__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
+__<a href="/#part">part_id</a>__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(not-null,foreign-key)</font> |
+__<a href="/#product">product_imei</a>__ <br><font color="DarkGray">_varchar(15)_</font> <font color="Crimson">(not-null,foreign-key)</font> |
+__date_added__ <br><font color="DarkGray">_datetime_</font> <font color="Crimson"></font> |
+__date_removed__ <br><font color="DarkGray">_datetime_</font> <font color="Crimson"></font> |
+__added_repair_id__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(foreign-key)</font> |
+__removed_repair_id__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(foreign-key)</font> |
+__replaced_part_id__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(foreign-key)</font> |
 __created_at__  <br><font color="DarkGray">_datetime_</font> | timestamp that the record was created at
 __created_by__  <br><font color="DarkGray">_text_</font>| username of the user who created the record
 __modified_at__ <br><font color="DarkGray">_datetime_</font>| timestamp that the record was last modified
@@ -24,7 +24,7 @@ __modified_at__ <br><font color="DarkGray">_datetime_</font>| timestamp that the
 
 Relationship | Description
 -------------:|:------------
-<font color="DarkGray">N/A</font> | <font color="DarkGray">_There are no relatioships for this table._</font>
+<font color="DarkGray">N/A</font> | <font color="DarkGray">_There are no relationships for this table._</font>
 
 <hr>
 <br>
@@ -34,16 +34,15 @@ Relationship | Description
 ```python
     url = "http://smartapi.bboxx.co.uk/v1/part_product_linker"
     data = json.dumps({
-		"modified_by": "test",
-		"part_id": 1,
-		"product_imei": "000000000000000",
+		"part_id": 1,                                 # look up part type IDs using GET: part type
+		"product_imei": "000000000000000",            # look up product IMEIs using GET: product
 		"date_added": "2000-01-01 00:00:00",
 		"date_removed": "2000-01-01 00:00:00",
 		"added_repair_id": 1,
 		"removed_repair_id": 1,
 		"replaced_part_id": 1,
 		})
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.post(url=url, data=data, headers=headers)
 
@@ -66,13 +65,13 @@ Relationship | Description
 		"created_by": "test.user@bboxx.co.uk"
 		"modified_at": None
 	}
-    ```
+```
 
-    > We can retrieve the `part_product_linker` created by specifying its `part_product_linker_id` in the request url:
+> We can retrieve the `part_product_linker` created by specifying its `part_product_linker_id` in the request url:
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/part_product_linker/1'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.get(url=url, headers=headers)
 
@@ -100,7 +99,7 @@ Relationship | Description
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/part_product_linker'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.get(url=url, headers=headers)
 
@@ -125,20 +124,19 @@ Relationship | Description
 > We can edit the newly created `part_product_linker` with a `PUT` request:
 
 ```python
-    url = 'http://smartapi.bboxx.co.uk/v1/part_product_linker'
+    url = 'http://smartapi.bboxx.co.uk/v1/part_product_linker/1'
     data = json.dumps({
-		"modified_by": "changed",
-		"part_id": 2,
-		"product_imei": "999999999999999",
+		"part_id": 2,                                     # look up part type IDs using GET: part type
+		"product_imei": "999999999999999",                # look up product IMEIs using GET: product
 		"date_added": "2016-07-01 12:34:45",
 		"date_removed": "2016-07-01 12:34:45",
 		"added_repair_id": 2,
 		"removed_repair_id": 2,
 		"replaced_part_id": 2,
 		})
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
-    r = requests.post(url=url, data=data, headers=headers)
+    r = requests.put(url=url, data=data, headers=headers)
 
     r
     >>> <Response 200>
@@ -165,7 +163,7 @@ Relationship | Description
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/part_product_linker/1'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.delete(url=url, headers=headers)
 
@@ -223,4 +221,4 @@ body | <font color="DarkGray">N/A</font>
 permissions | <font color="Crimson">__`SYSTEM`__</font>
 response | `204`
 
-    
+

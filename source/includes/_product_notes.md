@@ -7,9 +7,9 @@ This description is not yet complete it should be filled in!
 Field | Description
 ------:|:------------
 __product_note_id__ <br><font color="DarkGray">_int_</font> <font color="Crimson">__(primary key)__</font> | A unique integer identifier for each product_note.
-__modified_by__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
-__note_text__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null)</font> | 
-__<a href="/#product">product_imei</a>__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null,foreign-key)</font> | 
+__modified_by__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
+__note_text__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null)</font> |
+__<a href="/#product">product_imei</a>__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null,foreign-key)</font> |
 __created_at__  <br><font color="DarkGray">_datetime_</font> | timestamp that the record was created at
 __created_by__  <br><font color="DarkGray">_text_</font>| username of the user who created the record
 __modified_at__ <br><font color="DarkGray">_datetime_</font>| timestamp that the record was last modified
@@ -19,7 +19,7 @@ __modified_at__ <br><font color="DarkGray">_datetime_</font>| timestamp that the
 
 Relationship | Description
 -------------:|:------------
-<font color="DarkGray">N/A</font> | <font color="DarkGray">_There are no relatioships for this table._</font>
+<font color="DarkGray">N/A</font> | <font color="DarkGray">_There are no relationships for this table._</font>
 
 <hr>
 <br>
@@ -29,11 +29,10 @@ Relationship | Description
 ```python
     url = "http://smartapi.bboxx.co.uk/v1/product_notes"
     data = json.dumps({
-		"modified_by": "test",
 		"note_text": "test",
-		"product_imei": "test",
+		"product_imei": "000000000000",               # look up product IMEIs using GET: product
 		})
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.post(url=url, data=data, headers=headers)
 
@@ -51,13 +50,13 @@ Relationship | Description
 		"created_by": "test.user@bboxx.co.uk"
 		"modified_at": None
 	}
-    ```
+```
 
-    > We can retrieve the `product_note` created by specifying its `product_note_id` in the request url:
+> We can retrieve the `product_note` created by specifying its `product_note_id` in the request url:
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/product_notes/1'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.get(url=url, headers=headers)
 
@@ -80,7 +79,7 @@ Relationship | Description
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/product_notes'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.get(url=url, headers=headers)
 
@@ -105,15 +104,14 @@ Relationship | Description
 > We can edit the newly created `product_note` with a `PUT` request:
 
 ```python
-    url = 'http://smartapi.bboxx.co.uk/v1/product_notes'
+    url = 'http://smartapi.bboxx.co.uk/v1/product_notes/1'
     data = json.dumps({
-		"modified_by": "changed",
 		"note_text": "changed",
-		"product_imei": "changed",
+		"product_imei": "000000000000",                           # look up product IMEIs using GET: product
 		})
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
-    r = requests.post(url=url, data=data, headers=headers)
+    r = requests.put(url=url, data=data, headers=headers)
 
     r
     >>> <Response 200>
@@ -135,7 +133,7 @@ Relationship | Description
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/product_notes/1'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.delete(url=url, headers=headers)
 
@@ -193,4 +191,4 @@ body | <font color="DarkGray">N/A</font>
 permissions | <font color="Crimson">__`SYSTEM`__</font>
 response | `204`
 
-    
+

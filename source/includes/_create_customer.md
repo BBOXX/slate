@@ -13,7 +13,7 @@ data = json.dumps({
 })
 headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
-r = requests.put(url=url, data=data, headers=headers)
+r = requests.post(url=url, data=data, headers=headers)
 
 print r
 >>> "status": "success",
@@ -98,7 +98,7 @@ __permissions__ | `ADMIN`
 
 
 ### Identifying Customers
-Each <a href=/#customer>`Customer`</a> has a unique integer id in the SMARTSolar system. However external parties are likely to have their own, independent, ways of identifying customers. External parties will want to access their customers using their external_id's but internally SMARTSolar will have to use the unique interger assigned during creation. In addition, the format of the external identifier could be an integer or a string. To account for this the <a href=/#customer>`Customer`</a> object has the following fields:
+Each <a href=/#customer>`Customer`</a> has a unique integer id in the SMARTSolar system. However external parties are likely to have their own, independent, ways of identifying customers. External parties will want to access their customers using their external_id's but internally SMARTSolar will have to use the unique integer assigned during creation. In addition, the format of the external identifier could be an integer or a string. To account for this the <a href=/#customer>`Customer`</a> object has the following fields:
 
 * `customer_id` - An integer created and handled internally by the SMARTSolar system.
 * `external_customer_id` <font color="DarkGray">_(int)_</font> - uniquely identifies that <a href=/#customer>`Customer`</a> with-in that third party entity.

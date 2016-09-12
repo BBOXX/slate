@@ -7,6 +7,7 @@ This data includes:
 * created_at
 * modified_at
 * created_by
+* modified_by
 
 These fields are always set by the system and should __not__ be set by the user. They can be queried as usual using the
 normal query syntax.
@@ -34,6 +35,7 @@ normal query syntax.
         u'created_at': u'2016-07-28T08:43:09.501636',
         u'created_by': u'u.celery@bboxx.co.uk',
         u'modified_at': None,
+        u'modified_by': None,
     }
 ```
 
@@ -69,3 +71,7 @@ Every record has a `created_by` column which is the username of the user respons
 Every record has a `modified_at` column which is a  millisecond-precision timestamp in ISO8601 format (YYYY-MM-DD HH:MM:SS.mmmm).
 
 `modified_at` specifies the __last__ time that an column in that record was altered and is set by the system. If `modified_at` is specified by the user it is ignored.
+
+### modified_by
+
+Every record has a `modified_by` column which is the username of the user responsible for modifying the record. `modified_by` is set by the system, if `modified_by` is specified by the user it is ignored and replaced with the username associated which the token provided in the headers.

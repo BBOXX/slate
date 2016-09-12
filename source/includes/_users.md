@@ -7,24 +7,25 @@ This description is not yet complete it should be filled in!
 Field | Description
 ------:|:------------
 __username__ <br><font color="DarkGray">_string_</font> <font color="Crimson">__(primary key)__</font> | A unique integer identifier for each user.
-__modified_by__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
-__<a href="/#entity">entity_id</a>__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(foreign-key)</font> | 
-__hub_id__ <br><font color="DarkGray">_int_</font> <font color="Crimson"></font> | 
-__shop_id__ <br><font color="DarkGray">_int_</font> <font color="Crimson"></font> | 
-__user_product_visibility__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
-__user_permissions__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
-__token__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
-__token_expiry__ <br><font color="DarkGray">_datetime_</font> <font color="Crimson"></font> | 
+__modified_by__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
+__<a href="/#entity">entity_id</a>__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(foreign-key)</font> |
+__hub_id__ <br><font color="DarkGray">_int_</font> <font color="Crimson"></font> |
+__shop_id__ <br><font color="DarkGray">_int_</font> <font color="Crimson"></font> |
+__user_product_visibility__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
+__user_permissions__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
+__token__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
+__token_expiry__ <br><font color="DarkGray">_datetime_</font> <font color="Crimson"></font> |
 __created_at__  <br><font color="DarkGray">_datetime_</font> | timestamp that the record was created at
 __created_by__  <br><font color="DarkGray">_text_</font>| username of the user who created the record
-__modified_at__ <br><font color="DarkGray">_datetime_</font>| timestamp that the record was last modified
+__modified_at__ <br><font color="DarkGray">_datetime_</font>| timestamp that the record was
+ last modified
 
 
 <br>
 
 Relationship | Description
 -------------:|:------------
-<font color="DarkGray">N/A</font> | <font color="DarkGray">_There are no relatioships for this table._</font>
+<font color="DarkGray">N/A</font> | <font color="DarkGray">_There are no relationships for this table._</font>
 
 <hr>
 <br>
@@ -53,4 +54,4 @@ Relationship | Description
 
 
 
-    
+

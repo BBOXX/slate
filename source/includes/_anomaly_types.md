@@ -7,16 +7,16 @@ This description is not yet complete it should be filled in!
 Field | Description
 ------:|:------------
 __anomaly_type_id__ <br><font color="DarkGray">_int_</font> <font color="Crimson">__(primary key)__</font> | A unique integer identifier for each anomaly_type.
-__modified_by__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
-__name__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null)</font> | 
-__version__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(not-null)</font> | 
-__description__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
-__metrics__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
-__version_comment__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
-__min_gap_length__ <br><font color="DarkGray">_int_</font> <font color="Crimson"></font> | 
-__min_duration__ <br><font color="DarkGray">_int_</font> <font color="Crimson"></font> | 
-__min_data_points__ <br><font color="DarkGray">_int_</font> <font color="Crimson"></font> | 
-__gap_anomaly__ <br><font color="DarkGray">_boolean_</font> <font color="Crimson">(not-null)</font> | 
+__modified_by__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
+__name__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null)</font> |
+__version__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(not-null)</font> |
+__description__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
+__metrics__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
+__version_comment__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
+__min_gap_length__ <br><font color="DarkGray">_int_</font> <font color="Crimson"></font> |
+__min_duration__ <br><font color="DarkGray">_int_</font> <font color="Crimson"></font> |
+__min_data_points__ <br><font color="DarkGray">_int_</font> <font color="Crimson"></font> |
+__gap_anomaly__ <br><font color="DarkGray">_boolean_</font> <font color="Crimson">(not-null)</font> |
 __status__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null)</font> | Describes whether the anomaly type is currently fully used, in a test mode or temporarily suspended.<br><font color="DodgerBlue">options: ["test", "live", "suspended"]</font>
 __created_at__  <br><font color="DarkGray">_datetime_</font> | timestamp that the record was created at
 __created_by__  <br><font color="DarkGray">_text_</font>| username of the user who created the record
@@ -27,9 +27,9 @@ __modified_at__ <br><font color="DarkGray">_datetime_</font>| timestamp that the
 
 Relationship | Description
 -------------:|:------------
-__anomalies__ | The associated anomalies
-__alert_type_anomaly_type_linker__ | The associated alert_type_anomaly_type_linker
-__anomaly_type_product_type_linker__ | The associated anomaly_type_product_type_linker
+__anomalies__ | The associated <a href="/#anomaly">`anomalies`</a>
+__alert_type_anomaly_type_linker__ | The associated <a href="/#alert-type-anomaly-type-linker">`alert_type_anomaly_type_linker`</a>
+__anomaly_type_product_type_linker__ | The associated <a href="/#alert-type-product-type-linker">`alert_type_product_type_linker`</a>
 
 
 <hr>
@@ -40,7 +40,7 @@ __anomaly_type_product_type_linker__ | The associated anomaly_type_product_type_
 ```python
     url = "http://smartapi.bboxx.co.uk/v1/anomaly_types"
     data = json.dumps({
-		"modified_by": "test",
+
 		"name": "test",
 		"version": 1,
 		"description": "test",
@@ -50,9 +50,9 @@ __anomaly_type_product_type_linker__ | The associated anomaly_type_product_type_
 		"min_duration": 1,
 		"min_data_points": 1,
 		"gap_anomaly": True,
-		"status": "test",
+		"status": "test",                         # unique options: [“test”, “live”, “suspended”]
 		})
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.post(url=url, data=data, headers=headers)
 
@@ -63,7 +63,6 @@ __anomaly_type_product_type_linker__ | The associated anomaly_type_product_type_
 
     >>> {
 		"anomaly_type_id": 1
-		"modified_by": "test",
 		"name": "test",
 		"version": 1,
 		"description": "test",
@@ -78,13 +77,13 @@ __anomaly_type_product_type_linker__ | The associated anomaly_type_product_type_
 		"created_by": "test.user@bboxx.co.uk"
 		"modified_at": None
 	}
-    ```
+```
 
-    > We can retrieve the `anomaly_type` created by specifying its `anomaly_type_id` in the request url:
+> We can retrieve the `anomaly_type` created by specifying its `anomaly_type_id` in the request url:
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/anomaly_types/1'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.get(url=url, headers=headers)
 
@@ -94,7 +93,6 @@ __anomaly_type_product_type_linker__ | The associated anomaly_type_product_type_
     r.json()
     >>> {
 		"anomaly_type_id": 1
-		"modified_by": "test",
 		"name": "test",
 		"version": 1,
 		"description": "test",
@@ -115,7 +113,7 @@ __anomaly_type_product_type_linker__ | The associated anomaly_type_product_type_
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/anomaly_types'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.get(url=url, headers=headers)
 
@@ -140,9 +138,8 @@ __anomaly_type_product_type_linker__ | The associated anomaly_type_product_type_
 > We can edit the newly created `anomaly_type` with a `PUT` request:
 
 ```python
-    url = 'http://smartapi.bboxx.co.uk/v1/anomaly_types'
+    url = 'http://smartapi.bboxx.co.uk/v1/anomaly_types/1'
     data = json.dumps({
-		"modified_by": "changed",
 		"name": "changed",
 		"version": 2,
 		"description": "changed",
@@ -152,9 +149,9 @@ __anomaly_type_product_type_linker__ | The associated anomaly_type_product_type_
 		"min_duration": 2,
 		"min_data_points": 2,
 		"gap_anomaly": False,
-		"status": "changed",
+		"status": "changed",                          # unique options: [“test”, “live”, “suspended”]
 		})
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.post(url=url, data=data, headers=headers)
 
@@ -164,7 +161,6 @@ __anomaly_type_product_type_linker__ | The associated anomaly_type_product_type_
     r.json()
     >>> {
 		"anomaly_type_id": 1
-		"modified_by": "changed",
 		"name": "changed",
 		"version": 2,
 		"description": "changed",
@@ -186,7 +182,7 @@ __anomaly_type_product_type_linker__ | The associated anomaly_type_product_type_
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/anomaly_types/1'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.delete(url=url, headers=headers)
 
@@ -244,4 +240,4 @@ body | <font color="DarkGray">N/A</font>
 permissions | <font color="Crimson">__`SYSTEM`__</font>
 response | `204`
 
-    
+

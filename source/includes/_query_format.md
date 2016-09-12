@@ -18,7 +18,7 @@ params = {
         "single": True
     })
 }
-headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + token}
+headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
 r = requests.get(url, params, headers)
 ```

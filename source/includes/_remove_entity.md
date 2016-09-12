@@ -1,6 +1,6 @@
 ## `/products/<imei>/remove_entity`
 
-Use this endpoint to remove an entity from the product. 
+Use this endpoint to remove an entity from the product.
 
 > A `PUT` request to this endpoint removes the specified entity.
 
@@ -11,7 +11,7 @@ Use this endpoint to remove an entity from the product.
     })
     headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
-    r = requests.put(url=url, data=data headers=headers)
+    r = requests.put(url=url, data=data, headers=headers)
 
     print r.json()
     >>>{
@@ -23,9 +23,9 @@ Use this endpoint to remove an entity from the product.
     }
 ```
 
-This endpoint is used to change the entity to which a unit is. A succesful request will generate a 200 response and return a list of all entites that this unit is assigned to. 
+This endpoint is used to remove the entity from the unit. A successful request will generate a 200 response and return a list of all entities that this unit is assigned to.
 
-    | value 
+    | value
 ---:|:------
 __endpoint__ | `/products/<imei>/remove`
 __method__ | `PUT`
@@ -34,14 +34,16 @@ __payload__ | `{"entity_id": <id>}`
 __response__ | 200
 
 ### Entity Id
-The body of the `PUT` should be a valid `entity_id`. You can see a list of all entities by querying the `/entities` endpoint and a list of the entites with a particular product by querying the Product Entity Linker.
+The body of the `PUT` should be a valid `entity_id`. You can see a list of all entities by querying the <a href="/#entity">`/entities`</a> endpoint.
+To view all entities assigned to a product use <a href="/#product-entity-linker">`/product_entity_linker`</a> with a <a href="/#query-format-and-filtering">filter</a> of the product imei.
+
 
 ### Unknown Entity
-All units with no entity are assigned to entity #1 - Unknown Entity. This entity is removed as soon as a new entity is assigned to the unit. If all entities are removed the unit is re-assigned to Unknown Entity. 
+All units with no entity are assigned to entity #1 - Unknown Entity. This entity is removed as soon as a new entity is assigned to the unit. If all entities are removed the unit is re-assigned to Unknown Entity.
 
 ### Multiple Entities
-A unit can be assigned to many entities. 
-To add a new entity to the existing list simply use `/products/<imei>/assign_entity`. 
-To change the entity rather than adding a new entity see `/products/<imei>/change_entity`
-To remove an entity see `/products/<imei>/remove_entity
+A unit can be assigned to many entities.
+To add a new entity to the existing list simply use <a href="/#products-lt-imei-gt-assign_entity">`/products/<imei>/assign_entity`</a>.
+To change the entity rather than adding a new entity see <a href="/#products-lt-imei-gt-change_entity">`/products/<imei>/change_entity`</a>.
+To remove an entity see <a href="/#products-lt-imei-gt-remove_entity">`/products/<imei>/remove_entity`</a>.
 

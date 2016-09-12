@@ -27,7 +27,7 @@ rel3 | rel3
             k: v,
             k: v,
         })
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.post(url=url, data=data, headers=headers)
 
@@ -47,7 +47,7 @@ rel3 | rel3
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/table_name_plural/post_record_id'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.get(url=url, headers=headers)
 
@@ -66,7 +66,7 @@ rel3 | rel3
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/table_name_plural'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.get(url=url, headers=headers)
 
@@ -90,7 +90,7 @@ rel3 | rel3
             k: v,
             k: v,
         })
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.post(url=url, data=data, headers=headers)
 
@@ -110,7 +110,7 @@ rel3 | rel3
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/table_name_plural/post_record_id'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.delete(url=url, headers=headers)
 

@@ -7,10 +7,10 @@ This description is not yet complete it should be filled in!
 Field | Description
 ------:|:------------
 __product_type_id__ <br><font color="DarkGray">_int_</font> <font color="Crimson">__(primary key)__</font> | A unique integer identifier for each product_type.
-__modified_by__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
-__name__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null,unique)</font> | 
-__erp_code__ <br><font color="DarkGray">_varchar(6)_</font> <font color="Crimson"></font> | 
-__parameter_types__ <br><font color="DarkGray">_unknown-type_</font> <font color="Crimson"></font> | 
+__modified_by__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
+__name__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null,unique)</font> |
+__erp_code__ <br><font color="DarkGray">_varchar(6)_</font> <font color="Crimson"></font> |
+__parameter_types__ <br><font color="DarkGray">_unknown-type_</font> <font color="Crimson"></font> |
 __created_at__  <br><font color="DarkGray">_datetime_</font> | timestamp that the record was created at
 __created_by__  <br><font color="DarkGray">_text_</font>| username of the user who created the record
 __modified_at__ <br><font color="DarkGray">_datetime_</font>| timestamp that the record was last modified
@@ -20,13 +20,13 @@ __modified_at__ <br><font color="DarkGray">_datetime_</font>| timestamp that the
 
 Relationship | Description
 -------------:|:------------
-__products__ | The associated products
-__alert_type_product_type_linker__ | The associated alert_type_product_type_linker
-__anomaly_type_product_type_linker__ | The associated anomaly_type_product_type_linker
-__part_type_product_type_linker__ | The associated part_type_product_type_linker
-__product_type_software_version_type_linker__ | The associated product_type_software_version_type_linker
-__symptom_type_product_type_linker__ | The associated symptom_type_product_type_linker
-__latest_software__ | The associated latest_software
+__products__ | The associated <a href="/#product">`products`</a>
+__alert_type_product_type_linker__ | The associated <a href="/#part-type-product-type-linker">`alert_type_product_type_linker`</a>
+__anomaly_type_product_type_linker__ | The associated <a href="/#anomaly-type-product-type-linker">`anomaly_type_product_type_linker`</a>
+__part_type_product_type_linker__ | The associated <a href="/#part-type-product-type-linker">`part_type_product_type_linker`</a>
+__product_type_software_version_type_linker__ | The associated <a href="/#product-type-software-version-type-linker">`product_type_software_version_type_linker`</a>
+__symptom_type_product_type_linker__ | The associated <a href="/#symptom-type-product-type-linker">`symptom_type_product_type_linker`</a>
+__latest_software__ | The associated <a href="/#latest-software">`latest_software`</a>
 
 
 <hr>
@@ -37,12 +37,11 @@ __latest_software__ | The associated latest_software
 ```python
     url = "http://smartapi.bboxx.co.uk/v1/product_types"
     data = json.dumps({
-		"modified_by": "test",
-		"name": "test",
+		"name": "test",                       # unique
 		"erp_code": "XX0001",
 		"parameter_types": Unknown column type,
 		})
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.post(url=url, data=data, headers=headers)
 
@@ -61,13 +60,13 @@ __latest_software__ | The associated latest_software
 		"created_by": "test.user@bboxx.co.uk"
 		"modified_at": None
 	}
-    ```
+```
 
-    > We can retrieve the `product_type` created by specifying its `product_type_id` in the request url:
+> We can retrieve the `product_type` created by specifying its `product_type_id` in the request url:
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/product_types/1'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.get(url=url, headers=headers)
 
@@ -91,7 +90,7 @@ __latest_software__ | The associated latest_software
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/product_types'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.get(url=url, headers=headers)
 
@@ -118,14 +117,13 @@ __latest_software__ | The associated latest_software
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/product_types'
     data = json.dumps({
-		"modified_by": "changed",
-		"name": "changed",
+		"name": "changed",                            # unique
 		"erp_code": YY9999,
 		"parameter_types": Unknown column type,
 		})
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
-    r = requests.post(url=url, data=data, headers=headers)
+    r = requests.put(url=url, data=data, headers=headers)
 
     r
     >>> <Response 200>
@@ -148,7 +146,7 @@ __latest_software__ | The associated latest_software
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/product_types/1'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.delete(url=url, headers=headers)
 
@@ -206,4 +204,4 @@ body | <font color="DarkGray">N/A</font>
 permissions | <font color="Crimson">__`SYSTEM`__</font>
 response | `204`
 
-    
+

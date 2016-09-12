@@ -7,10 +7,10 @@ A table of each possible type of parameter that may be set. The valid parameter
 Field | Description
 ------:|:------------
 __parameter_type_id__ <br><font color="DarkGray">_int_</font> <font color="Crimson">__(primary key)__</font> | A unique integer identifier for each parameter_type.
-__modified_by__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
-__name__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null,unique)</font> | 
+__modified_by__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
+__name__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null,unique)</font> |
 __data_type__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null)</font> | <br><font color="DodgerBlue">options: ["int", "float", "bool", "string", "datetime"]</font>
-__validation_rules__ <br><font color="DarkGray">_unknown-type_</font> <font color="Crimson"></font> | 
+__validation_rules__ <br><font color="DarkGray">_unknown-type_</font> <font color="Crimson"></font> |
 __created_at__  <br><font color="DarkGray">_datetime_</font> | timestamp that the record was created at
 __created_by__  <br><font color="DarkGray">_text_</font>| username of the user who created the record
 __modified_at__ <br><font color="DarkGray">_datetime_</font>| timestamp that the record was last modified
@@ -31,12 +31,11 @@ __parameters__ | The associated parameters
 ```python
     url = "http://smartapi.bboxx.co.uk/v1/parameter_types"
     data = json.dumps({
-		"modified_by": "test",
-		"name": "test",
-		"data_type": "test",
+		"name": "test",                   # unique
+		"data_type": "test",              # unique options: [“int”, “float”, “bool”, “string”, “datetime”]
 		"validation_rules": Unknown column type,
 		})
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.post(url=url, data=data, headers=headers)
 
@@ -55,13 +54,13 @@ __parameters__ | The associated parameters
 		"created_by": "test.user@bboxx.co.uk"
 		"modified_at": None
 	}
-    ```
+```
 
-    > We can retrieve the `parameter_type` created by specifying its `parameter_type_id` in the request url:
+> We can retrieve the `parameter_type` created by specifying its `parameter_type_id` in the request url:
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/parameter_types/1'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.get(url=url, headers=headers)
 
@@ -85,7 +84,7 @@ __parameters__ | The associated parameters
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/parameter_types'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.get(url=url, headers=headers)
 
@@ -110,16 +109,15 @@ __parameters__ | The associated parameters
 > We can edit the newly created `parameter_type` with a `PUT` request:
 
 ```python
-    url = 'http://smartapi.bboxx.co.uk/v1/parameter_types'
+    url = 'http://smartapi.bboxx.co.uk/v1/parameter_types/1'
     data = json.dumps({
-		"modified_by": "changed",
-		"name": "changed",
-		"data_type": "changed",
+		"name": "changed",                # unique
+		"data_type": "changed",           # unique options
 		"validation_rules": Unknown column type,
 		})
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
-    r = requests.post(url=url, data=data, headers=headers)
+    r = requests.put(url=url, data=data, headers=headers)
 
     r
     >>> <Response 200>
@@ -142,7 +140,7 @@ __parameters__ | The associated parameters
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/parameter_types/1'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.delete(url=url, headers=headers)
 
@@ -200,4 +198,4 @@ body | <font color="DarkGray">N/A</font>
 permissions | <font color="Crimson">__`SYSTEM`__</font>
 response | `204`
 
-    
+

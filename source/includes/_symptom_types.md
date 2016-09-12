@@ -7,9 +7,9 @@ This description is not yet complete it should be filled in!
 Field | Description
 ------:|:------------
 __symptom_type_id__ <br><font color="DarkGray">_int_</font> <font color="Crimson">__(primary key)__</font> | A unique integer identifier for each symptom_type.
-__modified_by__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
-__name__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null,unique)</font> | 
-__description__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
+__modified_by__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
+__name__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null,unique)</font> |
+__description__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
 __created_at__  <br><font color="DarkGray">_datetime_</font> | timestamp that the record was created at
 __created_by__  <br><font color="DarkGray">_text_</font>| username of the user who created the record
 __modified_at__ <br><font color="DarkGray">_datetime_</font>| timestamp that the record was last modified
@@ -19,8 +19,8 @@ __modified_at__ <br><font color="DarkGray">_datetime_</font>| timestamp that the
 
 Relationship | Description
 -------------:|:------------
-__symptom_type_product_type_linker__ | The associated symptom_type_product_type_linker
-__repair_symptom_type_linker__ | The associated repair_symptom_type_linker
+__symptom_type_product_type_linker__ | The associated <a href="/#symptom-type-product-type-linker">`symptom_type_product_type_linker`</a>
+__repair_symptom_type_linker__ | The associated <a href="/#repair-symptom-type-linker">`repair_symptom_type_linker`</a>
 
 
 <hr>
@@ -31,11 +31,10 @@ __repair_symptom_type_linker__ | The associated repair_symptom_type_linker
 ```python
     url = "http://smartapi.bboxx.co.uk/v1/symptom_types"
     data = json.dumps({
-		"modified_by": "test",
-		"name": "test",
+		"name": "test",                       # unique
 		"description": "test",
 		})
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.post(url=url, data=data, headers=headers)
 
@@ -53,13 +52,13 @@ __repair_symptom_type_linker__ | The associated repair_symptom_type_linker
 		"created_by": "test.user@bboxx.co.uk"
 		"modified_at": None
 	}
-    ```
+```
 
-    > We can retrieve the `symptom_type` created by specifying its `symptom_type_id` in the request url:
+> We can retrieve the `symptom_type` created by specifying its `symptom_type_id` in the request url:
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/symptom_types/1'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.get(url=url, headers=headers)
 
@@ -82,7 +81,7 @@ __repair_symptom_type_linker__ | The associated repair_symptom_type_linker
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/symptom_types'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.get(url=url, headers=headers)
 
@@ -107,15 +106,14 @@ __repair_symptom_type_linker__ | The associated repair_symptom_type_linker
 > We can edit the newly created `symptom_type` with a `PUT` request:
 
 ```python
-    url = 'http://smartapi.bboxx.co.uk/v1/symptom_types'
+    url = 'http://smartapi.bboxx.co.uk/v1/symptom_types/1'
     data = json.dumps({
-		"modified_by": "changed",
-		"name": "changed",
+		"name": "changed",                    # unique
 		"description": "changed",
 		})
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
-    r = requests.post(url=url, data=data, headers=headers)
+    r = requests.put(url=url, data=data, headers=headers)
 
     r
     >>> <Response 200>
@@ -137,7 +135,7 @@ __repair_symptom_type_linker__ | The associated repair_symptom_type_linker
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/symptom_types/1'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.delete(url=url, headers=headers)
 
@@ -195,4 +193,4 @@ body | <font color="DarkGray">N/A</font>
 permissions | <font color="Crimson">__`SYSTEM`__</font>
 response | `204`
 
-    
+

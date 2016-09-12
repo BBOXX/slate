@@ -1,5 +1,8 @@
 ## `/products/<imei>/change_customer`
 ### Description
+
+> A `PUT` request to this endpoint will change the Customer of the Product.
+
 ```python
 url = "http://smartapi.bboxx.co.uk/v1/products/111111111111111/change_customer"
 
@@ -28,13 +31,13 @@ print r
 }
 ```
 
-In the SMARTSolar system the <a href=/#customer>`Customer`</a> belongs to a <a href=/#product>`Product`</a> rather than the reverse.  Therefore if a <a href=/#customer>`Customer`</a> changes their <a href=/#product>`Product`</a>, in the SMARTSolar system this equates to a <a href=/#product>`Product`</a> changing their <a href=/#customer>`Customer`</a>.   
-This endpoint can be called to change the <a href=/#customer>`Customer`</a> that is assigned to <a href=/#product>`Product`</a>. 
+In the SMARTSolar system the <a href=/#customer>`Customer`</a> belongs to a <a href=/#product>`Product`</a> rather than the reverse.  Therefore if a <a href=/#customer>`Customer`</a> changes their <a href=/#product>`Product`</a>, in the SMARTSolar system this equates to a <a href=/#product>`Product`</a> changing their <a href=/#customer>`Customer`</a>.
+This endpoint can be called to change the <a href=/#customer>`Customer`</a> that is assigned to <a href=/#product>`Product`</a>.
 
 ### Endpoint
-To do so simply make the `PUT` request to the imei of the new <a href=/#product>`Product`</a>. The old <a href=/#product>`Product`</a> will have that <a href=/#customer>`Customer`</a> removed automatically by the system. 
+To do so simply make the `PUT` request to the imei of the new <a href=/#product>`Product`</a>. The old <a href=/#product>`Product`</a> will have that <a href=/#customer>`Customer`</a> removed automatically by the system.
 
-    | value 
+    | value
 ---:|:------
 __endpoint__ | `/products/<imei>/change_customer`
 __method__ | `PUT`
@@ -45,6 +48,6 @@ __response__ | 200
 
 ### Example Usage
 
- - Customer-A currently has unit `000000000000000`.   
- - Customer-A has their unit swapped to `111111111111111`.  
+ - Customer-A currently has unit `000000000000000`.
+ - Customer-A has their unit swapped to `111111111111111`.
  - Correct action is therefore a request to `products/111111111111111/change_customer` as shown to the right.

@@ -3,7 +3,7 @@
 > A `PUT` request to this endpoint enables the unit.
 
 ```python
-    url = "http://smartapi.bboxx.co.uk/v1/products/01000000000/enable"
+    url = "http://smartapi.bboxx.co.uk/v1/products/00000000000/enable"
     headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.put(url=url, headers=headers)
@@ -30,7 +30,7 @@ Note that if a unit is already enabled the API will return "success" anyway.
 
 ### Pending Status and Enable History
 
-A unit's status will only change once it makes an RC-GET connection the SMARTSolar API and retrieves it's new status before then its actual status is unchanged. To reflect this the unit is placed in a "pending" state. The pending state therefore means that the unit has been enabled (or disabled) but has not yet connected to the system to update its status.
+A unit's status will only change once it makes an RC-GET connection to the SMARTSolar API and retrieves its new status, before then its actual status is unchanged. To reflect this, the unit is placed in a "pending" state. The pending state therefore means that the unit has been enabled (or disabled) but has not yet connected to the system to update its status.
 
 For example:
 
@@ -39,10 +39,10 @@ For example:
 * The unit remains in "pending enabled" until a connection is made.
 * A connection is made - the unit receives its new status and is moved to enabled, it is now ON
 
-### The `enable_history` table
+### The <a href="/#enable-history">`enable_history`</a> table
 
-The changes above are tracked in the `enable_history` table. Each time an unit has a change of state this is recorded in the
-`enable_history` table, along with the user who caused the change.
+The changes above are tracked in the <a href="/#enable-history">`enable_history`</a> table. Each time a unit has a change of state this is recorded in the
+<a href="/#enable-history">`enable_history`</a> table, along with the user who caused the change.
 
 ### WakeUp
 > Current WAKEUP ENABLED software:
@@ -66,5 +66,5 @@ WAKEUP_ENABLED_SOFTWARE = [
 ]
 ```
 
-Waiting for a unit to make an RC-GET connection can take a long time - up to 4hrs! To avoid such slow response times when enabling or disabling a unit, the unit is automatically sent a `WAKEUP` SMS message. This message, if received correctly, causes the unit to "wakeup" and make an RC-GET connection immediately. This usually results in a response time of ~ 2mins for enable and disable operations. The `WAKEUP` will only be sent to units with compatible software (see right). Each sent SMS will be stored in the `sms_history` table where you can check the status of the SMS and confirm it's delivery (or lack-of!). For more details of SMS and WAKEUP see "SMS and WAKEUP".
+Waiting for a unit to make an RC-GET connection can take a long time - up to 4 hours! To avoid such slow response times when enabling or disabling a unit, the unit is automatically sent a `WAKEUP` SMS message. This message, if received correctly, causes the unit to "wakeup" and make an RC-GET connection immediately. This usually results in a response time of ~ 2mins for enable and disable operations. The `WAKEUP` will only be sent to units with compatible software (see right). Each sent SMS will be stored in the <a href="/#sms-history">`sms_history`</a> table where you can check the status of the SMS and confirm its delivery (or lack-of!). For more details of SMS and WAKEUP see <a href="/#products-lt-imei-gt-send_wakeup">`send_wakeup`</a>.
 

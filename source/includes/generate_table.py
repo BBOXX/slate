@@ -66,11 +66,11 @@ Relationship | Description
 > We can edit the newly created {table_name_singular} with a `PUT` request:
 
 ```python
-    url = 'http://smartapi.bboxx.co.uk/v1/{table_name_plural}'
+    url = 'http://smartapi.bboxx.co.uk/v1/{table_name_plural}/1'
     data = json.dumps({put_data})
     headers = {headers}
 
-    r = requests.post(url=url, data=data, headers=headers)
+    r = requests.put(url=url, data=data, headers=headers)
 
     r
     >>> <Response 200>
@@ -188,7 +188,7 @@ if __name__ == '__main__':
             k: v,
         }"""
 
-    headers = "{'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}"
+    headers = "{'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}"
 
     post_response_data = """{
             k: v,

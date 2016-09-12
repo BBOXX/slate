@@ -7,15 +7,15 @@ This description is not yet complete it should be filled in!
 Field | Description
 ------:|:------------
 __sms_history_id__ <br><font color="DarkGray">_int_</font> <font color="Crimson">__(primary key)__</font> | A unique integer identifier for each sms_history.
-__attempted_retries__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(not-null)</font> | 
-__<a href="/#product#">enable_history_id</a>__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(foreign-key)</font> | 
-__message_reference__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
-__message__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
-__<a href="/#product_i#">product_imei</a>__ <br><font color="DarkGray">_varchar(15)_</font> <font color="Crimson">(not-null,foreign-key)</font> | 
-__sent_time__ <br><font color="DarkGray">_datetime_</font> <font color="Crimson">(not-null)</font> | 
-__sms_timeout__ <br><font color="DarkGray">_datetime_</font> <font color="Crimson">(not-null)</font> | 
-__status__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
-__trigger__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
+__attempted_retries__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(not-null)</font> |
+__<a href="/#product#">enable_history_id</a>__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(foreign-key)</font> |
+__message_reference__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
+__message__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
+__<a href="/#product_i#">product_imei</a>__ <br><font color="DarkGray">_varchar(15)_</font> <font color="Crimson">(not-null,foreign-key)</font> |
+__sent_time__ <br><font color="DarkGray">_datetime_</font> <font color="Crimson">(not-null)</font> |
+__sms_timeout__ <br><font color="DarkGray">_datetime_</font> <font color="Crimson">(not-null)</font> |
+__status__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
+__trigger__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
 __created_at__  <br><font color="DarkGray">_datetime_</font> | timestamp that the record was created at
 __created_by__  <br><font color="DarkGray">_text_</font>| username of the user who created the record
 __modified_at__ <br><font color="DarkGray">_datetime_</font>| timestamp that the record was last modified
@@ -24,7 +24,7 @@ __modified_at__ <br><font color="DarkGray">_datetime_</font>| timestamp that the
 Relationship | Description
 -------------:|:------------
 
- There are no relatioships for this table.
+ There are no relationships for this table.
 
 ### <u>HTTP Requests</u>
 > An example POST request. Note that sms_history_id, created_at, modified_at and created_by are all handled internally by the system and need not be explicitly specified. See Meta Data for more information.
@@ -42,7 +42,7 @@ Relationship | Description
 		"status": "test",
 		"trigger": "test",
 		})
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.post(url=url, data=data, headers=headers)
 
@@ -72,7 +72,7 @@ Relationship | Description
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/sms_histories/1'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.get(url=url, headers=headers)
 
@@ -101,7 +101,7 @@ Relationship | Description
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/sms_histories'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.get(url=url, headers=headers)
 
@@ -138,7 +138,7 @@ Relationship | Description
 		"status": "changed",
 		"trigger": "changed",
 		})
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.post(url=url, data=data, headers=headers)
 
@@ -168,7 +168,7 @@ Relationship | Description
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/sms_histories/1'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.delete(url=url, headers=headers)
 
@@ -224,4 +224,4 @@ query params | <font color="DarkGray">N/A</font>
 body | <font color="DarkGray">N/A</font>
 permissions | <font color="Crimson">__`SYSTEM`__</font>
 response | `204`
-    
+

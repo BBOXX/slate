@@ -1,6 +1,6 @@
 ## Authentication and Permissions
 
-Authentication for any request is made by added a valid token to the headers as follows:
+Authentication for any request is made by adding a valid token to the headers as follows:
 
 `{'Content-Type': 'application/json', 'Authorization': 'Token token=' + <TOKEN-GOES-HERE>}`
 
@@ -21,9 +21,9 @@ The token is a random 64-char string.
     print token
     >>> "sRtBFThPFIpgKY2sYkaSHFbo1hosg2NvCP4PmBIxfGQ62VS6zrjFT6dr1qDLQGz"
 ```
-To generate a valid token a user should send a `POST` reqest to <a href=/#auth-login>`/auth/login`</a> with their username and password.
+To generate a valid token a user should send a `POST` reqest to <a href=/#auth-login>`/auth/login`</a> with their username and password. Username is an email address.
 
-A valid token will be sent in response if the username and passworod are correct.
+A valid token will be sent in response if the username and password are correct.
 
 ## The Full `/auth/login` Response
 ```python
@@ -171,7 +171,7 @@ This strategy is much preferable.
 
 Code snippets demonstrating this routine are shown to the right.
 
-There are of course a number of other possible strategies for avoiding repeated calls to <a href=/#auth-login>`/auth/login`</a> this is simply
+There are of course a number of other possible strategies for avoiding repeated calls to <a href=/#auth-login>`/auth/login`</a>, this is simply
 a suggestion.
 
 ## Permissions and Scope
@@ -188,7 +188,7 @@ We name these two layers `PERMISSIONS` and `SCOPE`.
 
 ### Permissions
 
-There are 5 levels of permission that a user can have. These permissions are "heirachical" - each successive permissions
+There are 5 levels of permission that a user can have. These permissions are "heirarchical" - each successive permissions
 level can do everything the lower level can do plus some extra functionality.
 
 These permissions in ascending order are:

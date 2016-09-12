@@ -7,12 +7,12 @@ This description is not yet complete it should be filled in!
 Field | Description
 ------:|:------------
 __enable_history_id__ <br><font color="DarkGray">_int_</font> <font color="Crimson">__(primary key)__</font> | A unique integer identifier for each enable_history.
-__modified_by__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
-__<a href="/#product">product_imei</a>__ <br><font color="DarkGray">_varchar(15)_</font> <font color="Crimson">(not-null,foreign-key)</font> | 
+__modified_by__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
+__<a href="/#product">product_imei</a>__ <br><font color="DarkGray">_varchar(15)_</font> <font color="Crimson">(not-null,foreign-key)</font> |
 __prev_enable_state__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | <br><font color="DodgerBlue">options: ["pending_enabled", "pending_disabled", "init", "enabled", "disabled"]</font>
 __current_enable_state__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null)</font> | <br><font color="DodgerBlue">options: ["pending_enabled", "pending_disabled", "init", "enabled", "disabled"]</font>
-__user__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null)</font> | 
-__date__ <br><font color="DarkGray">_datetime_</font> <font color="Crimson">(not-null)</font> | 
+__user__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null)</font> |
+__date__ <br><font color="DarkGray">_datetime_</font> <font color="Crimson">(not-null)</font> |
 __created_at__  <br><font color="DarkGray">_datetime_</font> | timestamp that the record was created at
 __created_by__  <br><font color="DarkGray">_text_</font>| username of the user who created the record
 __modified_at__ <br><font color="DarkGray">_datetime_</font>| timestamp that the record was last modified
@@ -22,7 +22,7 @@ __modified_at__ <br><font color="DarkGray">_datetime_</font>| timestamp that the
 
 Relationship | Description
 -------------:|:------------
-__sms_history__ | The associated sms_history
+__sms_history__ | The associated <a href="/#sms-history">`sms_history`</a>
 
 
 <hr>
@@ -34,7 +34,7 @@ __sms_history__ | The associated sms_history
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/enable_history/1'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.get(url=url, headers=headers)
 
@@ -46,8 +46,8 @@ __sms_history__ | The associated sms_history
 		"enable_history_id": 1
 		"modified_by": "test",
 		"product_imei": "000000000000000",
-		"prev_enable_state": "test",
-		"current_enable_state": "test",
+		"prev_enable_state": "test",                          # unique options: [“pending_enabled”, “pending_disabled”, “init”, “enabled”, “disabled”]
+		"current_enable_state": "test",                       # unique options: [“pending_enabled”, “pending_disabled”, “init”, “enabled”, “disabled”]
 		"user": "test",
 		"date": "2000-01-01 00:00:00",
 		"created_at": "2000-01-01 00:00:00"
@@ -60,7 +60,7 @@ __sms_history__ | The associated sms_history
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/enable_history'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.get(url=url, headers=headers)
 
@@ -88,7 +88,7 @@ __sms_history__ | The associated sms_history
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/enable_history/1'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.delete(url=url, headers=headers)
 
@@ -130,4 +130,4 @@ body | <font color="DarkGray">N/A</font>
 permissions | <font color="Crimson">__`SYSTEM`__</font>
 response | `204`
 
-    
+

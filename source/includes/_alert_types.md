@@ -7,14 +7,14 @@ This description is not yet complete it should be filled in!
 Field | Description
 ------:|:------------
 __alert_type_id__ <br><font color="DarkGray">_int_</font> <font color="Crimson">__(primary key)__</font> | A unique integer identifier for each alert_type.
-__modified_by__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
-__name__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null)</font> | 
-__version__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(not-null)</font> | 
-__category__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
-__purpose__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
-__message__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
-__status__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null)</font> | 
-__severity__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
+__modified_by__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
+__name__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null)</font> |
+__version__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(not-null)</font> |
+__category__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
+__purpose__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
+__message__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
+__status__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null)</font> |
+__severity__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> |
 __created_at__  <br><font color="DarkGray">_datetime_</font> | timestamp that the record was created at
 __created_by__  <br><font color="DarkGray">_text_</font>| username of the user who created the record
 __modified_at__ <br><font color="DarkGray">_datetime_</font>| timestamp that the record was last modified
@@ -24,9 +24,9 @@ __modified_at__ <br><font color="DarkGray">_datetime_</font>| timestamp that the
 
 Relationship | Description
 -------------:|:------------
-__alerts__ | The associated alerts
-__alert_type_anomaly_type_linker__ | The associated alert_type_anomaly_type_linker
-__alert_type_product_type_linker__ | The associated alert_type_product_type_linker
+__alerts__ | The associated <a href="/#alerts">`alerts`</a>
+__alert_type_anomaly_type_linker__ | The associated <a href="/#alert-type-anomaly-type-linker">`alert_type_anomaly_type_linker`</a>
+__alert_type_product_type_linker__ | The associated <a href="/#alert-type-product-type-linker">`alert_type_product_type_linker`</a>
 
 
 <hr>
@@ -37,7 +37,6 @@ __alert_type_product_type_linker__ | The associated alert_type_product_type_link
 ```python
     url = "http://smartapi.bboxx.co.uk/v1/alert_types"
     data = json.dumps({
-		"modified_by": "test",
 		"name": "test",
 		"version": 1,
 		"category": "test",
@@ -46,7 +45,7 @@ __alert_type_product_type_linker__ | The associated alert_type_product_type_link
 		"status": "test",
 		"severity": "test",
 		})
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.post(url=url, data=data, headers=headers)
 
@@ -57,7 +56,6 @@ __alert_type_product_type_linker__ | The associated alert_type_product_type_link
 
     >>> {
 		"alert_type_id": 1
-		"modified_by": "test",
 		"name": "test",
 		"version": 1,
 		"category": "test",
@@ -69,13 +67,13 @@ __alert_type_product_type_linker__ | The associated alert_type_product_type_link
 		"created_by": "test.user@bboxx.co.uk"
 		"modified_at": None
 	}
-    ```
+```
 
-    > We can retrieve the `alert_type` created by specifying its `alert_type_id` in the request url:
+> We can retrieve the `alert_type` created by specifying its `alert_type_id` in the request url:
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/alert_types/1'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.get(url=url, headers=headers)
 
@@ -85,7 +83,6 @@ __alert_type_product_type_linker__ | The associated alert_type_product_type_link
     r.json()
     >>> {
 		"alert_type_id": 1
-		"modified_by": "test",
 		"name": "test",
 		"version": 1,
 		"category": "test",
@@ -103,7 +100,7 @@ __alert_type_product_type_linker__ | The associated alert_type_product_type_link
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/alert_types'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.get(url=url, headers=headers)
 
@@ -128,9 +125,8 @@ __alert_type_product_type_linker__ | The associated alert_type_product_type_link
 > We can edit the newly created `alert_type` with a `PUT` request:
 
 ```python
-    url = 'http://smartapi.bboxx.co.uk/v1/alert_types'
+    url = 'http://smartapi.bboxx.co.uk/v1/alert_types/1'
     data = json.dumps({
-		"modified_by": "changed",
 		"name": "changed",
 		"version": 2,
 		"category": "changed",
@@ -139,9 +135,9 @@ __alert_type_product_type_linker__ | The associated alert_type_product_type_link
 		"status": "changed",
 		"severity": "changed",
 		})
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
-    r = requests.post(url=url, data=data, headers=headers)
+    r = requests.put(url=url, data=data, headers=headers)
 
     r
     >>> <Response 200>
@@ -149,7 +145,6 @@ __alert_type_product_type_linker__ | The associated alert_type_product_type_link
     r.json()
     >>> {
 		"alert_type_id": 1
-		"modified_by": "changed",
 		"name": "changed",
 		"version": 2,
 		"category": "changed",
@@ -168,7 +163,7 @@ __alert_type_product_type_linker__ | The associated alert_type_product_type_link
 
 ```python
     url = 'http://smartapi.bboxx.co.uk/v1/alert_types/1'
-    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + <valid_token>}
+    headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
     r = requests.delete(url=url, headers=headers)
 
@@ -226,4 +221,4 @@ body | <font color="DarkGray">N/A</font>
 permissions | <font color="Crimson">__`SYSTEM`__</font>
 response | `204`
 
-    
+

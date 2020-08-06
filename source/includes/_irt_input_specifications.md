@@ -2,7 +2,7 @@
 
 Each input specification contains three mandatory fields:
 
-"ident" - unique identifier for the input value
+"ident" - unique identifier for the input value (see below)
 
 "label" - short description of the input value, to be displayed to the user
 
@@ -15,9 +15,28 @@ Each input specification contains three mandatory fields:
 "datetime"
 "selection"
 
-Each definition may also contain an optional validation rules field:
+Each specification may also contain an optional source field (described below):
+
+"source"
+
+
+Each specification may also contain an optional validation rules field (available validation rules are described for each data type, below):
 
 "validation_rules"
+
+
+### "source" Field
+
+If the "source" field is absent, the input value is to be obtained by requesting input via the user interface. 
+
+If the "source" field is present, its value indicates where the input value should be obtained. The "source" value will only be present for input specifications that are part of a current_state response with "user-input" set to False. 
+
+The "source" values need to be agreed between SMART Solar and the IRT client application. Examples are:
+
+* "app" : the input value is held by the IRT client application, e.g. the version number of the latest firmware file stored on the client computer
+* "product" : the input value can be obtained from the product under repair, e.g. the modem's IMEI
+* "printer" : the input value is the success or failure status of a printer command
+
 
 ---
 ### "int" Data Type

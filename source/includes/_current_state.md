@@ -58,6 +58,7 @@ The `data` key contains a dictionary with the following keys:
 * "ident" - a unique identifier for the state within the workflow
 * "name" - the name of the state which can be displayed to the user
 * "description" - description of the purpose of the state and any actions the user is required to take
+* "user-input" - indicates whether this state requires input from a  user (optional, defaults to True)
 * "inputs" - a list of [IRT Input Specifications](#irt-input-specifications) (may be empty)
 * "events" - a list of [IRT Event Specifications](#irt-event-specifications) (may be empty)
 

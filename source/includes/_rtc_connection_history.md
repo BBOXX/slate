@@ -8,9 +8,9 @@ Field | Description
 ------:|:------------
 __rtc_connection_history_id__ <br><font color="DarkGray">_int_</font> <font color="Crimson">__(primary key)__</font> | A unique integer identifier for each rtc_connection_history.
 __<a href="/#product">product_imei</a>__ <br><font color="DarkGray">_varchar(15)_</font> <font color="Crimson">(not-null,foreign-key)</font> | 
-__connection_status__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null)</font> | <br><font color="DodgerBlue">options: ["online", "offline"]</font>
+__connection_status__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null)</font> | <br><font color="DodgerBlue">options: ["offline", "online"]</font>
 __connection_status_time__ <br><font color="DarkGray">_datetime_</font> <font color="Crimson">(not-null)</font> | 
-__connection_status_reason__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null)</font> | <br><font color="DodgerBlue">options: ["user-request", "unknown", "low-battery-voltage", "inactivity", "sleep-mode", "message-received"]</font>
+__connection_status_reason__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null)</font> | <br><font color="DodgerBlue">options: ["user-request", "message-received", "unknown", "low-battery-voltage", "sleep-mode", "inactivity"]</font>
 __connection_status_info__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
 __latest_message_time__ <br><font color="DarkGray">_datetime_</font> <font color="Crimson"></font> | 
 __created_at__  <br><font color="DarkGray">_datetime_</font> | timestamp that the record was created at

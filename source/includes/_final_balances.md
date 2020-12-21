@@ -11,7 +11,6 @@ __<a href="/#product">product_imei</a>__ <br><font color="DarkGray">_varchar(15)
 __final_balance__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(not-null)</font> | 
 __total_added__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(not-null)</font> | 
 __<a href="/#zero-command">zero_command_id</a>__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(not-null,foreign-key)</font> | 
-__status__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
 __created_at__  <br><font color="DarkGray">_datetime_</font> | timestamp that the record was created at
 __created_by__  <br><font color="DarkGray">_text_</font>| username of the user who created the record
 __modified_at__ <br><font color="DarkGray">_datetime_</font>| timestamp that the record was last modified
@@ -46,7 +45,6 @@ Relationship | Description
 		"final_balance": 1,
 		"total_added": 1,
 		"zero_command_id": 1,
-		"status": "test",
 		"created_at": "2000-01-01 00:00:00"
 		"created_by": "test.user@bboxx.co.uk"
 		"modified_at": None

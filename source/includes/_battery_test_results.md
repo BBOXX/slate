@@ -14,6 +14,7 @@ __problem__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></f
 __message__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
 __lvd_time__ <br><font color="DarkGray">_datetime_</font> <font color="Crimson"></font> | 
 __energy__ <br><font color="DarkGray">_float_</font> <font color="Crimson"></font> | 
+__config__ <br><font color="DarkGray">_unknown-type_</font> <font color="Crimson"></font> | 
 __<a href="/#battery-part">battery_part_id</a>__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(foreign-key)</font> | 
 __<a href="/#repair-workflow-event">repair_workflow_event_id</a>__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(foreign-key)</font> | 
 __created_at__  <br><font color="DarkGray">_datetime_</font> | timestamp that the record was created at
@@ -42,6 +43,7 @@ Relationship | Description
 		"message": "test",
 		"lvd_time": "2000-01-01 00:00:00",
 		"energy": 1.0,
+		"config": Unknown column type,
 		"battery_part_id": 1,
 		"repair_workflow_event_id": 1,
 		})
@@ -63,6 +65,7 @@ Relationship | Description
 		"message": "test",
 		"lvd_time": "2000-01-01 00:00:00",
 		"energy": 1.0,
+		"config": Unknown column type,
 		"battery_part_id": 1,
 		"repair_workflow_event_id": 1,
 		"created_at": "2000-01-01 00:00:00"
@@ -92,6 +95,7 @@ Relationship | Description
 		"message": "test",
 		"lvd_time": "2000-01-01 00:00:00",
 		"energy": 1.0,
+		"config": Unknown column type,
 		"battery_part_id": 1,
 		"repair_workflow_event_id": 1,
 		"created_at": "2000-01-01 00:00:00"
@@ -138,6 +142,7 @@ Relationship | Description
 		"message": "changed",
 		"lvd_time": "2016-07-01 12:34:45",
 		"energy": 2.0,
+		"config": Unknown column type,
 		"battery_part_id": 2,
 		"repair_workflow_event_id": 2,
 		})
@@ -158,6 +163,7 @@ Relationship | Description
 		"message": "changed",
 		"lvd_time": "2016-07-01 12:34:45",
 		"energy": 2.0,
+		"config": Unknown column type,
 		"battery_part_id": 2,
 		"repair_workflow_event_id": 2,
 		"created_at": "2000-01-01 00:00:00"

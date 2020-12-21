@@ -23,12 +23,13 @@ __<a href="/#product-type">product_type_id</a>__ <br><font color="DarkGray">_int
 __serial_number__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null,unique)</font> | 
 __<a href="/#shop">shop_id</a>__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(foreign-key)</font> | 
 __<a href="/#software-l">software_lock</a>__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(foreign-key)</font> | 
-__rtc_network_name__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | <br><font color="DodgerBlue">options: ["Test-SIM-Provider", "Aeris", "Eseye", "Wireless-Logic"]</font>
+__rtc_network_name__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | <br><font color="DodgerBlue">options: ["Eseye", "Test-SIM-Provider", "Wireless-Logic", "Aeris"]</font>
 __ip_address__ <br><font color="DarkGray">_varchar(15)_</font> <font color="Crimson"></font> | 
 __latest_rtc_connection_history_id__ <br><font color="DarkGray">_int_</font> <font color="Crimson"></font> | 
 __latest_rtc_mo_status_report_time__ <br><font color="DarkGray">_datetime_</font> <font color="Crimson"></font> | 
 __latest_rtc_mt_status_update_time__ <br><font color="DarkGray">_datetime_</font> <font color="Crimson"></font> | 
 __rtc_enabled_flag__ <br><font color="DarkGray">_boolean_</font> <font color="Crimson">(not-null)</font> | 
+__dcm_enabled_flag__ <br><font color="DarkGray">_boolean_</font> <font color="Crimson">(not-null)</font> | 
 __assembler__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
 __gps_lat__ <br><font color="DarkGray">_float_</font> <font color="Crimson"></font> | 
 __gps_lon__ <br><font color="DarkGray">_float_</font> <font color="Crimson"></font> | 
@@ -42,9 +43,7 @@ __modified_by__ <br><font color="DarkGray">_text_</font>| user that last modifie
 Relationship | Description
 -------------:|:------------
 __connections__ | The associated connections
-__notes__ | The associated notes
 __part_product_linker__ | The associated part_product_linker
-__product_product_group_linker__ | The associated product_product_group_linker
 __product_entity_linker__ | The associated product_entity_linker
 __product_software_linker__ | The associated product_software_linker
 __enable_history_rel__ | The associated enable_history_rel
@@ -102,6 +101,7 @@ __final_balance__ | The associated final_balance
 		"latest_rtc_mo_status_report_time": "2000-01-01 00:00:00",
 		"latest_rtc_mt_status_update_time": "2000-01-01 00:00:00",
 		"rtc_enabled_flag": True,
+		"dcm_enabled_flag": True,
 		"assembler": "test",
 		"gps_lat": 1.0,
 		"gps_lon": 1.0,
@@ -164,6 +164,7 @@ __final_balance__ | The associated final_balance
 		"latest_rtc_mo_status_report_time": "2016-07-01 12:34:45",
 		"latest_rtc_mt_status_update_time": "2016-07-01 12:34:45",
 		"rtc_enabled_flag": False,
+		"dcm_enabled_flag": False,
 		"assembler": "changed",
 		"gps_lat": 2.0,
 		"gps_lon": 2.0,
@@ -200,6 +201,7 @@ __final_balance__ | The associated final_balance
 		"latest_rtc_mo_status_report_time": "2016-07-01 12:34:45",
 		"latest_rtc_mt_status_update_time": "2016-07-01 12:34:45",
 		"rtc_enabled_flag": False,
+		"dcm_enabled_flag": False,
 		"assembler": "changed",
 		"gps_lat": 2.0,
 		"gps_lon": 2.0,
@@ -263,3 +265,5 @@ query params | <font color="DarkGray">N/A</font>
 body | <font color="DarkGray">N/A</font>
 permissions | <font color="Crimson">__`SYSTEM`__</font>
 response | `204`
+
+    

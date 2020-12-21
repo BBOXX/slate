@@ -4,10 +4,10 @@
 
 ```python
     url = "https://smartapi.bboxx.co.uk/v1/products/000000000000/set_dcm_enabled_flag"
-    data = json.dumps({"status": "online"})
+    data = json.dumps({"enabled": true})
     headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=' + A_VALID_TOKEN}
 
-    r = requests.post(url=url, headers=headers)
+    r = requests.put(url=url, headers=headers)
 
     print r.json()
     >>> {

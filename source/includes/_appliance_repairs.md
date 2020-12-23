@@ -7,7 +7,9 @@ Lists repairs of BBOXX appliances
 Field | Description
 ------:|:------------
 __appliance_repair_id__ <br><font color="DarkGray">_int_</font> <font color="Crimson">__(primary key)__</font> | A unique integer identifier for each appliance_repair.
-__<a href="/#appliance">appliance_id</a>__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(not-null,foreign-key)</font> | 
+__<a href="/#appliance-type">appliance_type_id</a>__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(not-null,foreign-key)</font> | 
+__<a href="/#repair-centre">repair_centre_id</a>__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(foreign-key)</font> | 
+__serial_number__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
 __arrival_date__ <br><font color="DarkGray">_date_</font> <font color="Crimson"></font> | 
 __refurbishment_date__ <br><font color="DarkGray">_date_</font> <font color="Crimson"></font> | 
 __pending_status__ <br><font color="DarkGray">_boolean_</font> <font color="Crimson"></font> | 
@@ -34,7 +36,9 @@ __appliance_action_types__ | The associated appliance_action_types
 ```python
     url = "https://smartapi.bboxx.co.uk/v1/appliance_repairs"
     data = json.dumps({
-		"appliance_id": 1,
+		"appliance_type_id": 1,
+		"repair_centre_id": 1,
+		"serial_number": "test",
 		"arrival_date": "2000-01-01 00:00:00",
 		"refurbishment_date": "2000-01-01 00:00:00",
 		"pending_status": True,
@@ -51,7 +55,9 @@ __appliance_action_types__ | The associated appliance_action_types
 
     >>> {
 		"appliance_repair_id": 1
-		"appliance_id": 1,
+		"appliance_type_id": 1,
+		"repair_centre_id": 1,
+		"serial_number": "test",
 		"arrival_date": "2000-01-01 00:00:00",
 		"refurbishment_date": "2000-01-01 00:00:00",
 		"pending_status": True,
@@ -76,7 +82,9 @@ __appliance_action_types__ | The associated appliance_action_types
     r.json()
     >>> {
 		"appliance_repair_id": 1
-		"appliance_id": 1,
+		"appliance_type_id": 1,
+		"repair_centre_id": 1,
+		"serial_number": "test",
 		"arrival_date": "2000-01-01 00:00:00",
 		"refurbishment_date": "2000-01-01 00:00:00",
 		"pending_status": True,
@@ -118,7 +126,9 @@ __appliance_action_types__ | The associated appliance_action_types
 ```python
     url = 'https://smartapi.bboxx.co.uk/v1/appliance_repairs/1'
     data = json.dumps({
-		"appliance_id": 2,
+		"appliance_type_id": 2,
+		"repair_centre_id": 2,
+		"serial_number": "changed",
 		"arrival_date": "2000-01-01 00:00:00",
 		"refurbishment_date": "2000-01-01 00:00:00",
 		"pending_status": False,
@@ -134,7 +144,9 @@ __appliance_action_types__ | The associated appliance_action_types
     r.json()
     >>> {
 		"appliance_repair_id": 1
-		"appliance_id": 2,
+		"appliance_type_id": 2,
+		"repair_centre_id": 2,
+		"serial_number": "changed",
 		"arrival_date": "2000-01-01 00:00:00",
 		"refurbishment_date": "2000-01-01 00:00:00",
 		"pending_status": False,

@@ -9,6 +9,8 @@ Field | Description
 __repair_symptom_type_linker_id__ <br><font color="DarkGray">_int_</font> <font color="Crimson">__(primary key)__</font> | A unique integer identifier for each repair_symptom_type_linker.
 __<a href="/#repair">repair_id</a>__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(not-null,foreign-key)</font> | 
 __<a href="/#symptom-type">symptom_type_id</a>__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(not-null,foreign-key)</font> | 
+__dismissed_at__ <br><font color="DarkGray">_datetime_</font> <font color="Crimson"></font> | 
+__dismissed_by__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
 __created_at__  <br><font color="DarkGray">_datetime_</font> | timestamp that the record was created at
 __created_by__  <br><font color="DarkGray">_text_</font>| username of the user who created the record
 __modified_at__ <br><font color="DarkGray">_datetime_</font>| timestamp that the record was last modified
@@ -30,6 +32,8 @@ Relationship | Description
     data = json.dumps({
 		"repair_id": 1,
 		"symptom_type_id": 1,
+		"dismissed_at": "2000-01-01 00:00:00",
+		"dismissed_by": "test",
 		})
     headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=A_VALID_TOKEN'}
 
@@ -44,6 +48,8 @@ Relationship | Description
 		"repair_symptom_type_linker_id": 1
 		"repair_id": 1,
 		"symptom_type_id": 1,
+		"dismissed_at": "2000-01-01 00:00:00",
+		"dismissed_by": "test",
 		"created_at": "2000-01-01 00:00:00"
 		"created_by": "test.user@bboxx.co.uk"
 		"modified_at": None
@@ -66,6 +72,8 @@ Relationship | Description
 		"repair_symptom_type_linker_id": 1
 		"repair_id": 1,
 		"symptom_type_id": 1,
+		"dismissed_at": "2000-01-01 00:00:00",
+		"dismissed_by": "test",
 		"created_at": "2000-01-01 00:00:00"
 		"created_by": "test.user@bboxx.co.uk"
 		"modified_at": None
@@ -105,6 +113,8 @@ Relationship | Description
     data = json.dumps({
 		"repair_id": 2,
 		"symptom_type_id": 2,
+		"dismissed_at": "2016-07-01 12:34:45",
+		"dismissed_by": "changed",
 		})
     headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=A_VALID_TOKEN'}
 
@@ -118,6 +128,8 @@ Relationship | Description
 		"repair_symptom_type_linker_id": 1
 		"repair_id": 2,
 		"symptom_type_id": 2,
+		"dismissed_at": "2016-07-01 12:34:45",
+		"dismissed_by": "changed",
 		"created_at": "2000-01-01 00:00:00"
 		"created_by": "test.user@bboxx.co.uk"
 		"modified_at": 2016-07-07 12:34:45

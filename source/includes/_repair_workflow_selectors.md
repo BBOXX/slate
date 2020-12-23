@@ -9,7 +9,7 @@ Field | Description
 __repair_workflow_selector_id__ <br><font color="DarkGray">_int_</font> <font color="Crimson">__(primary key)__</font> | A unique integer identifier for each repair_workflow_selector.
 __<a href="/#product-type">product_type_id</a>__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(not-null,foreign-key)</font> | ProductType identifier
 __workflow_name__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | The name workflow of the workflow to be used. Null indicates that a repair workflow cannot be created by a user matching this rule
-__selector_type__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null)</font> | The rule type.<br><font color="DodgerBlue">options: ["USER", "ENTITY"]</font>
+__selector_type__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null)</font> | The rule type.<br><font color="DodgerBlue">options: ["ENTITY", "USER"]</font>
 __selector_value__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null)</font> | The value to be matched. Email address for a 'USER' rule; GEIC code for an 'ENTITY' rule
 __created_at__  <br><font color="DarkGray">_datetime_</font> | timestamp that the record was created at
 __created_by__  <br><font color="DarkGray">_text_</font>| username of the user who created the record

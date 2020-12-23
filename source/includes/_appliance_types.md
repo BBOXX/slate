@@ -21,7 +21,6 @@ __modified_by__ <br><font color="DarkGray">_text_</font>| user that last modifie
 
 Relationship | Description
 -------------:|:------------
-__appliances__ | The associated appliances
 __symptoms__ | The associated symptoms
 __actions__ | The associated actions
 

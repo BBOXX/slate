@@ -23,7 +23,7 @@ __<a href="/#product-type">product_type_id</a>__ <br><font color="DarkGray">_int
 __serial_number__ <br><font color="DarkGray">_string_</font> <font color="Crimson">(not-null,unique)</font> | 
 __<a href="/#shop">shop_id</a>__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(foreign-key)</font> | 
 __<a href="/#software-l">software_lock</a>__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(foreign-key)</font> | 
-__rtc_network_name__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | <br><font color="DodgerBlue">options: ["Test-SIM-Provider", "Aeris", "Eseye", "Wireless-Logic"]</font>
+__rtc_network_name__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | <br><font color="DodgerBlue">options: ["Test-SIM-Provider", "Wireless-Logic", "Aeris", "Eseye"]</font>
 __ip_address__ <br><font color="DarkGray">_varchar(15)_</font> <font color="Crimson"></font> | 
 __latest_rtc_connection_history_id__ <br><font color="DarkGray">_int_</font> <font color="Crimson"></font> | 
 __latest_rtc_mo_status_report_time__ <br><font color="DarkGray">_datetime_</font> <font color="Crimson"></font> | 
@@ -42,9 +42,7 @@ __modified_by__ <br><font color="DarkGray">_text_</font>| user that last modifie
 Relationship | Description
 -------------:|:------------
 __connections__ | The associated connections
-__notes__ | The associated notes
 __part_product_linker__ | The associated part_product_linker
-__product_product_group_linker__ | The associated product_product_group_linker
 __product_entity_linker__ | The associated product_entity_linker
 __product_software_linker__ | The associated product_software_linker
 __enable_history_rel__ | The associated enable_history_rel
@@ -263,3 +261,5 @@ query params | <font color="DarkGray">N/A</font>
 body | <font color="DarkGray">N/A</font>
 permissions | <font color="Crimson">__`SYSTEM`__</font>
 response | `204`
+
+    

@@ -22,6 +22,7 @@ __modified_by__ <br><font color="DarkGray">_text_</font>| user that last modifie
 Relationship | Description
 -------------:|:------------
 __hubs__ | The associated hubs
+__alert_type_entity_anti_linker__ | The associated alert_type_entity_anti_linker
 __product_entity_linker__ | The associated product_entity_linker
 __battery_type_energy_limits__ | The associated battery_type_energy_limits
 

@@ -14,7 +14,7 @@
             "message": "Repair found",
             "data": {
                 "description": "The test jig indicates that this unit has a faulty PCB. Replace the PCB. Click the button below when this has been done",
-                "parameters": {"print_button_displayed": "true"}, 
+                "parameters": {"print_serial_button": "true"}, 
                 "events": [],
                 "ident": "replace_pcb",
                 "inputs": [

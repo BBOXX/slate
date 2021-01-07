@@ -14,6 +14,7 @@
             "message": "Repair found",
             "data": {
                 "description": "The test jig indicates that this unit has a faulty PCB. Replace the PCB. Click the button below when this has been done",
+                "parameters": {"print_button_displayed": "true"}, 
                 "events": [],
                 "ident": "replace_pcb",
                 "inputs": [
@@ -58,6 +59,7 @@ The `data` key contains a dictionary with the following keys:
 * "ident" - a unique identifier for the state within the workflow
 * "name" - the name of the state which can be displayed to the user
 * "description" - description of the purpose of the state and any actions the user is required to take
+* "parameters" - a collection of name/value pairs providing additional information to the caller (may be empty)
 * "inputs" - a list of [IRT Input Specifications](#irt-input-specifications) (may be empty)
 * "events" - a list of [IRT Event Specifications](#irt-event-specifications) (may be empty)
 

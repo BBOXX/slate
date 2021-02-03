@@ -12,7 +12,7 @@ __<a href="/#old-appliance-part-type">old_appliance_part_type_id</a>__ <br><font
 __<a href="/#new-appliance-part-type">new_appliance_part_type_id</a>__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(foreign-key)</font> | 
 __requested_date__ <br><font color="DarkGray">_datetime_</font> <font color="Crimson"></font> | 
 __replaced_date__ <br><font color="DarkGray">_datetime_</font> <font color="Crimson"></font> | 
-__repaired_parts_count__  <br><font color="DarkGray">_int_</font> | Count of parts inserted for each Appliance Repair
+__repaired_parts_count__  <br><font color="DarkGray">_int_</font> | Number of parts of this type replaced in this repair
 __created_at__  <br><font color="DarkGray">_datetime_</font> | timestamp that the record was created at
 __created_by__  <br><font color="DarkGray">_text_</font>| username of the user who created the record
 __modified_at__ <br><font color="DarkGray">_datetime_</font>| timestamp that the record was last modified

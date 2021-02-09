@@ -10,6 +10,7 @@ __appliance_part_type_id__ <br><font color="DarkGray">_int_</font> <font color="
 __name__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
 __description__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
 __erp_code__ <br><font color="DarkGray">_unknown-type_</font> <font color="Crimson"></font> | 
+__image__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
 __created_at__  <br><font color="DarkGray">_datetime_</font> | timestamp that the record was created at
 __created_by__  <br><font color="DarkGray">_text_</font>| username of the user who created the record
 __modified_at__ <br><font color="DarkGray">_datetime_</font>| timestamp that the record was last modified
@@ -33,6 +34,7 @@ __appliance_repair_appliance_type_linker__ | The associated appliance_repair_app
 		"name": "test",
 		"description": "test",
 		"erp_code": Unknown column type,
+        "image": "TV/123.png"
 		})
     headers = {'Content-Type': 'application/json', 'Authorization': 'Token token=A_VALID_TOKEN'}
 
@@ -48,6 +50,7 @@ __appliance_repair_appliance_type_linker__ | The associated appliance_repair_app
 		"name": "test",
 		"description": "test",
 		"erp_code": Unknown column type,
+        "image": "TV/123.png",
 		"created_at": "2000-01-01 00:00:00"
 		"created_by": "test.user@bboxx.co.uk"
 		"modified_at": None
@@ -71,6 +74,7 @@ __appliance_repair_appliance_type_linker__ | The associated appliance_repair_app
 		"name": "test",
 		"description": "test",
 		"erp_code": Unknown column type,
+        "image": "TV/123.png",
 		"created_at": "2000-01-01 00:00:00"
 		"created_by": "test.user@bboxx.co.uk"
 		"modified_at": None
@@ -125,6 +129,7 @@ __appliance_repair_appliance_type_linker__ | The associated appliance_repair_app
 		"name": "changed",
 		"description": "changed",
 		"erp_code": Unknown column type,
+        "image": "TV/123.png",
 		"created_at": "2000-01-01 00:00:00"
 		"created_by": "test.user@bboxx.co.uk"
 		"modified_at": 2016-07-07 12:34:45

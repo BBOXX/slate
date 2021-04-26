@@ -29,7 +29,7 @@ __latest_rtc_connection_history_id__ <br><font color="DarkGray">_int_</font> <fo
 __latest_rtc_mo_status_report_time__ <br><font color="DarkGray">_datetime_</font> <font color="Crimson"></font> | 
 __latest_rtc_mt_status_update_time__ <br><font color="DarkGray">_datetime_</font> <font color="Crimson"></font> | 
 __rtc_enabled_flag__ <br><font color="DarkGray">_boolean_</font> <font color="Crimson">(not-null)</font> | 
-__dcm_enabled_flag__ <br><font color="DarkGray">_boolean_</font> <font color="Crimson">(not-null)</font> | default value is True for all BP20 devices 
+__dcm_enabled_flag__ <br><font color="DarkGray">_boolean_</font> <font color="Crimson">(not-null)</font> | boolean value that shows whether a device is DCM enabled or not 
 __assembler__ <br><font color="DarkGray">_string_</font> <font color="Crimson"></font> | 
 __gps_lat__ <br><font color="DarkGray">_float_</font> <font color="Crimson"></font> | 
 __gps_lon__ <br><font color="DarkGray">_float_</font> <font color="Crimson"></font> | 

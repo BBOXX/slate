@@ -9,7 +9,7 @@ Field | Description
 __appliance_part_type_replacement_linker_id__ <br><font color="DarkGray">_int_</font> <font color="Crimson">__(primary key)__</font> | A unique integer identifier for each appliance_part_type_replacement_linker.
 __<a href="/#appliance-type">appliance_type_id</a>__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(not-null,foreign-key)</font> | 
 __<a href="/#existing-appliance-part-type">existing_appliance_part_type_id</a>__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(not-null,foreign-key)</font> | 
-__max_part_count__  <br><font color="DarkGray">_int_</font> | count of maximum parts that can be changed
+__max_part_count__  <br><font color="DarkGray">_int_</font> <font color="Crimson">(default=1)</font>| Maximum number of parts of this type that can be replaced for this appliance type
 __<a href="/#replacement-appliance-part-type">replacement_appliance_part_type_id</a>__ <br><font color="DarkGray">_int_</font> <font color="Crimson">(not-null,foreign-key)</font> | 
 __created_at__  <br><font color="DarkGray">_datetime_</font> | timestamp that the record was created at
 __created_by__  <br><font color="DarkGray">_text_</font>| username of the user who created the record

@@ -128,7 +128,7 @@ includes:
   - force_connection
   - get_repair
   - suggest_energy_limit
-  - set_dcm_enabled_flag
+  - enable_dcm
   - upload_tool_log
 
   - product_data
